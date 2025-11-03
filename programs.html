@@ -1,132 +1,848 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Ensures text displays correctly with special characters and symbols -->
     <meta charset="UTF-8">
+    <!-- Makes the website adapt to different screen sizes like phones and tablets -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Programs - Shakti Foundation</title>
+    
+    <!-- Clear page title that tells visitors this page shows our women empowerment programs in Bangladesh -->
+    <title>Our Programs - Shakti Foundation | Women Empowerment Initiatives in Bangladesh</title>
+    <!-- Brief description that appears in search results explaining our various programs -->
+    <meta name="description" content="Explore Shakti Foundation's women empowerment programs in Bangladesh: microfinance loans, healthcare clinics, education scholarships, and vocational skills training creating sustainable change.">
+    <!-- Keywords to help people find our programs through search engines -->
+    <meta name="keywords" content="Shakti Foundation programs, microfinance Bangladesh, healthcare initiatives, education programs, skills training, vocational training, women empowerment projects, NGO Bangladesh programs">
+    <!-- Identifies our organization as the content creator -->
+    <meta name="author" content="Shakti Foundation">
+    <!-- Instructions for search engines to index this page and follow links -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Links to our main design file for consistent branding -->
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* ===== POPUP BOX STYLES ===== */
+        /* Main theme colors - black background with gold and red accents */
+        body {
+            background: #000;
+            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Header styling with navigation - consistent with other pages */
+        header {
+            background: #000;
+            border-bottom: 2px solid #ffd700;
+            padding: 1rem 0;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        /* Logo section styling */
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .logo h1 {
+            color: #ffd700;
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .logo p {
+            color: white;
+            margin: 0;
+            font-size: 1rem;
+            font-weight: normal;
+        }
+        
+        /* Navigation menu with hover effects */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .nav-menu a:hover {
+            color: #ffd700;
+            background: rgba(255, 215, 0, 0.1);
+        }
+        
+        .nav-menu a.active {
+            color: #ffd700;
+        }
+        
+        /* Donate button styling - prominent red color */
+        .donate-button {
+            background: #ff0000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .donate-button:hover {
+            background: #cc0000;
+        }
+        
+        /* Search & Filter Styles - helps visitors find specific programs */
+        .search-filter-section {
+            background: #1a1a1a;
+            padding: 2rem 0;
+            border-bottom: 2px solid #FFD700;
+        }
 
-        /* Background overlay for popup (hidden by default) */
-        .info-modal {
+        .search-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            padding: 12px 16px;
+            border: 2px solid #FFD700;
+            border-radius: 8px;
+            background: #000;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #B22222;
+        }
+
+        .search-btn {
+            background: #B22222;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid #B22222;
+        }
+
+        .search-btn:hover {
+            background: #FFD700;
+            color: #000000;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .filter-btn {
+            background: #2a2a2a;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #FFD700;
+            color: #000000;
+        }
+
+        .search-results {
+            display: none;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .result-item {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #FFD700;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .result-item:hover {
+            transform: translateX(5px);
+            background: #333;
+        }
+
+        .result-item h4 {
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #CCCCCC;
+            font-style: italic;
+            padding: 2rem;
+        }
+
+        .stat-badge {
+            background: #B22222;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        /* Lightbox Styles - for viewing program images in detail */
+        .lightbox {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* semi-transparent black */
+            background: rgba(0, 0, 0, 0.95);
             z-index: 2000;
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        /* Box that appears inside popup */
-        .info-modal-content {
-            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-            padding: 2rem;
-            border-radius: 10px;
-            border: 2px solid #FFD700; /* gold border */
-            max-width: 500px;
-            width: 90%;
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
             position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 90%;
+            max-height: 90%;
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid #FFD700;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.3s ease;
         }
 
-        /* Heading inside popup */
-        .info-modal h3 {
-            color: #FFD700; /* gold */
+        .lightbox.active .lightbox-content {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .lightbox-img {
+            width: 100%;
+            height: auto;
+            max-height: 60vh;
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-caption {
+            padding: 1.5rem;
+            text-align: center;
+            color: #FFFFFF;
+            background: #2a2a2a;
+        }
+
+        .lightbox-caption h3 {
+            color: #FFD700;
             margin-bottom: 1rem;
-            border-bottom: 2px solid #B22222; /* dark red underline */
-            padding-bottom: 0.5rem;
+            font-size: 1.5rem;
+            transition: opacity 0.3s ease;
         }
 
-        /* Text inside popup */
-        .info-modal p {
-            color: #FFFFFF; /* white text */
+        .lightbox-caption p {
+            color: #CCCCCC;
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
+            transition: opacity 0.3s ease;
         }
 
-        /* Close button inside popup */
-        .close-modal {
-            background: #B22222; /* dark red */
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #B22222;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
             cursor: pointer;
+            z-index: 2001;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: #FFD700;
+            color: #000000;
+            transform: scale(1.1);
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #FFD700;
+            padding: 5px 10px;
+            border-radius: 15px;
             font-weight: bold;
+        }
+
+        /* Lightbox Navigation Arrows - for browsing multiple images */
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(178, 34, 34, 0.8);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 2001;
             transition: all 0.3s ease;
+            border: 2px solid #FFD700;
         }
 
-        /* Hover effect for close button */
-        .close-modal:hover {
-            background: #FFD700; /* gold */
-            color: #000000; /* black text */
+        .lightbox-nav:hover {
+            background: #FFD700;
+            color: #000000;
+            transform: translateY(-50%) scale(1.1);
         }
 
-        /* Info and Help buttons look clickable */
-        .info-text, .help-text {
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* Make existing program images clickable for lightbox viewing */
+        .program-image {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .program-image img {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .program-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .program-image::after {
+            content: '🔍 Click to view details';
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #FFD700;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .program-image:hover::after {
+            opacity: 1;
+        }
+        
+        /* Hero section styling for programs page */
+        .programs-hero {
+            background: #000;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            border-bottom: 3px solid #ffd700;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Program sections with alternating backgrounds for visual interest */
+        .program-detail {
+            padding: 4rem 0;
+            background: #000;
+            position: relative;
+        }
+        
+        .program-detail.healthcare {
+            background: #1a1a1a;
+        }
+        
+        /* Program content layout - text and images side by side */
+        .program-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .program-text {
+            flex: 1;
+        }
+        
+        .program-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .program-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        /* Statistics display for each program */
+        .program-stats {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat {
+            text-align: center;
+            background: #333;
+            padding: 1rem;
+            border-radius: 8px;
+            flex: 1;
+            border: 1px solid #ffd700;
+        }
+        
+        .stat .number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+        
+        /* Training modules button styling */
+        .cta-link {
+            background: #ffd700;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+            border: 2px solid #ffd700;
             cursor: pointer;
             transition: all 0.3s ease;
         }
+        
+        .cta-link:hover {
+            background: #000;
+            color: #ffd700;
+        }
+        
+        /* Large info buttons with hover effects */
+        .info-text {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ffd700;
+            color: #000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            border: 2px solid #ffd700;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .info-text:hover {
+            background: #000;
+            color: #ffd700;
+            transform: scale(1.1);
+        }
+        
+        /* Info popup styling that appears when info button is clicked */
+        .info-popup {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 0;
+            background: #333;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ffd700;
+            width: 250px;
+            z-index: 100;
+        }
+        
+        .info-popup.active {
+            display: block;
+        }
+        
+        /* Large help buttons linking to enquiry page */
+        .help-text {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: #ff0000;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            border: 2px solid #ff0000;
+            font-size: 26px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .help-text:hover {
+            background: #000;
+            color: #ff0000;
+            transform: scale(1.1);
+        }
+        
+        /* Training modules modal - appears when training button is clicked */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .training-modal {
+            background: #1a1a1a;
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            padding: 2rem;
+            color: white;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ffd700;
+            padding-bottom: 1rem;
+        }
+        
+        .close-modal {
+            background: #ff0000;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .training-modules-list {
+            list-style: none;
+        }
+        
+        .training-modules-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        /* Call to Action section at the bottom of the page */
+        .programs-cta {
+            padding: 4rem 0;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: #ff0000;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px;
+        }
+        
+        .btn-secondary {
+            background: #ffd700;
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px;
+        }
+        
+        /* Footer styling consistent with other pages */
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 2px solid #ffd700;
+        }
+        
+        /* Mobile responsive design adjustments */
+        @media (max-width: 768px) {
+            .program-content {
+                flex-direction: column;
+            }
+            
+            .program-stats {
+                flex-direction: column;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
 
-        /* Hover effect for Info and Help buttons */
-        .info-text:hover, .help-text:hover {
-            transform: scale(1.1); /* grow slightly */
-            background-color: #FFD700; /* gold background */
-            color: #000000; /* black text */
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+
+            .lightbox-caption {
+                padding: 1rem;
+            }
+
+            .lightbox-caption h3 {
+                font-size: 1.2rem;
+            }
+
+            .lightbox-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .lightbox-prev {
+                left: 10px;
+            }
+            
+            .lightbox-next {
+                right: 10px;
+            }
+
+            .search-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-input {
+                max-width: 100%;
+            }
+
+            .filter-buttons {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Additional SEO-rich content styling for program benefits */
+        .program-benefits {
+            padding: 3rem 0;
+            background: #000;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .benefit-card {
+            background: #2a2a2a;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+        }
+        
+        .benefit-card h4 {
+            color: #FFD700;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
 <body>
-    <!-- ===== HEADER SECTION ===== -->
+    <!-- Header with navigation menu - consistent across all pages -->
     <header>
         <div class="header-container">
-            <!-- Logo / site name -->
+            <!-- Organization logo and name -->
             <div class="logo">
-                <h1>Shakti Foundation</h1>
+                <h1>SHAKTI</h1>
+                <p>Empowering Women</p>
             </div>
-            
-            <!-- Navigation menu -->
+            <!-- Main navigation links to other pages -->
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <!-- Current page marked as active -->
+                    <!-- Current page is highlighted to show visitors where they are -->
                     <li><a href="programs.html" class="active">Programs</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="enquiry.html">Enquiry</a></li>
                 </ul>
             </nav>
-            
-            <!-- Donate button (highlighted on header) -->
-            <a href="donate.html" class="donate-button">Donate Now</a>
+            <!-- Donate button - always visible to encourage support -->
+            <a href="donate.html" class="donate-button">DONATE NOW</a>
         </div>
     </header>
 
-    <!-- ===== MAIN CONTENT ===== -->
     <main>
-        <!-- Hero banner introducing Programs page -->
+        <!-- Hero section introducing all our programs -->
         <section class="programs-hero">
             <div class="container">
-                <h2>Empowerment Programs</h2>
-                <p>Comprehensive initiatives designed to create lasting impact in communities we serve</p>
+                <h1>Women Empowerment Programs in Bangladesh</h1>
+                <p>Discover how Shakti Foundation's comprehensive programs create sustainable change through microfinance, healthcare, education, and skills training initiatives across Bangladesh.</p>
             </div>
         </section>
 
-        <!-- ===== MICROFINANCE PROGRAM ===== -->
-        <section class="program-detail">
+        <!-- Search & Filter Section - helps visitors find specific programs quickly -->
+        <section class="search-filter-section">
+            <div class="container">
+                <h2>Find the Right Program</h2>
+                <p class="section-subtitle">Search and filter our women empowerment programs to find the initiatives that interest you most</p>
+                
+                <div class="search-container">
+                    <!-- Search input field for finding programs -->
+                    <input type="text" id="programSearch" placeholder="Search women empowerment programs... (e.g., microfinance loans, healthcare, education scholarships)" class="search-input">
+                    <!-- Button to execute the search -->
+                    <button onclick="searchPrograms()" class="search-btn">Search Programs</button>
+                </div>
+                
+                <!-- Filter buttons to narrow down program categories -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterPrograms('all')">All Programs</button>
+                    <button class="filter-btn" onclick="filterPrograms('microfinance')">Microfinance</button>
+                    <button class="filter-btn" onclick="filterPrograms('healthcare')">Healthcare</button>
+                    <button class="filter-btn" onclick="filterPrograms('education')">Education</button>
+                    <button class="filter-btn" onclick="filterPrograms('training')">Skills Training</button>
+                </div>
+                
+                <!-- Container where search results will appear -->
+                <div class="search-results" id="searchResults">
+                    <!-- Dynamic results will appear here when users search -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Benefits Section - explains why our programs work -->
+        <section class="program-benefits">
+            <div class="container">
+                <h2>Why Our Programs Create Lasting Impact</h2>
+                <div class="benefits-grid">
+                    <!-- Benefit 1: Economic independence -->
+                    <div class="benefit-card">
+                        <h4>🏠 Economic Independence</h4>
+                        <p>Our programs focus on creating sustainable income sources through microfinance and entrepreneurship training, helping women achieve financial independence.</p>
+                    </div>
+                    <!-- Benefit 2: Education access -->
+                    <div class="benefit-card">
+                        <h4>🎓 Education Access</h4>
+                        <p>We break barriers to education through scholarships and school development programs, creating opportunities for children and adults alike.</p>
+                    </div>
+                    <!-- Benefit 3: Healthcare equity -->
+                    <div class="benefit-card">
+                        <h4>🏥 Healthcare Equity</h4>
+                        <p>Mobile clinics and preventive care programs ensure remote communities receive essential medical services, reducing health disparities.</p>
+                    </div>
+                    <!-- Benefit 4: Skills development -->
+                    <div class="benefit-card">
+                        <h4>🔧 Skills Development</h4>
+                        <p>Vocational training provides marketable skills that lead to employment and entrepreneurship opportunities across Bangladesh.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Microfinance Program Section - detailed information about this program -->
+        <section class="program-detail" data-category="microfinance">
             <div class="container">
                 <div class="program-content">
-                    <!-- Text description -->
                     <div class="program-text">
-                        <h3>Microfinance</h3>
-                        <p>Our microfinance program provides small loans and financial literacy training to help individuals start and grow sustainable businesses. We focus on empowering women entrepreneurs who often lack access to traditional banking services.</p>
-                        
-                        <!-- Key statistics -->
+                        <h2>Microfinance for Women Entrepreneurs</h2>
+                        <p>Small business loans and comprehensive financial literacy training to help women start and grow sustainable businesses across Bangladesh. Our microfinance program has empowered thousands of women to become successful entrepreneurs.</p>
+                        <!-- Program statistics showing impact numbers -->
                         <div class="program-stats">
                             <div class="stat">
                                 <span class="number">2,500+</span>
@@ -136,62 +852,71 @@
                                 <span class="number">95%</span>
                                 <span class="label">Repayment Rate</span>
                             </div>
+                            <div class="stat">
+                                <span class="number">70%</span>
+                                <span class="label">Business Success Rate</span>
+                            </div>
+                        </div>
+                        <p><strong>Program Features:</strong> Small business loans (¥500-¥50,000), financial literacy workshops, business planning support, and ongoing mentorship from experienced entrepreneurs.</p>
+                    </div>
+                    <div class="program-image">
+                        <!-- Program image that can be clicked for lightbox view -->
+                        <img src="images/microfinance-women-group.jpg" alt="Women entrepreneurs participating in Shakti Foundation microfinance program in Bangladesh">
+                        <!-- Info button - click to show program details popup -->
+                        <div class="info-text">©</div>
+                        <div class="info-popup" id="microfinance-info">
+                            <strong>Microfinance Program Impact:</strong> Helping women entrepreneurs with small business loans and financial training to create sustainable livelihoods across 57 districts in Bangladesh.
                         </div>
                     </div>
-
-                    <!-- Image with Info button -->
-                    <div class="program-image">
-                        <img src="images/microfinance-program.jpg" alt="Women entrepreneurs receiving microfinance training">
-                        <div class="info-text" onclick="showInfo('microfinance')">© Info</div>
-                    </div>
                 </div>
-
-                <!-- Help button for microfinance -->
-                <div class="help-text" onclick="redirectToContact()">Q Help</div>
+                <!-- Help button - links to enquiry page for more information -->
+                <a href="enquiry.html" class="help-text">Q</a>
             </div>
         </section>
 
-        <!-- ===== HEALTHCARE PROGRAM ===== -->
-        <section class="program-detail healthcare">
+        <!-- Healthcare Program Section - alternating layout for visual variety -->
+        <section class="program-detail healthcare" data-category="healthcare">
             <div class="container">
                 <div class="program-content">
-                    <!-- Image with Info button -->
                     <div class="program-image">
-                        <img src="images/healthcare-program.jpg" alt="Mobile health clinic serving rural community">
-                        <div class="info-text" onclick="showInfo('healthcare')">© Info</div>
+                        <img src="images/healthcare-mobile-clinic.jpg" alt="Shakti Foundation mobile health clinic serving remote communities in Bangladesh">
+                        <div class="info-text">©</div>
+                        <div class="info-popup" id="healthcare-info">
+                            <strong>Healthcare Services:</strong> Mobile clinics serving remote communities with essential medical care, maternal health services, and child healthcare programs across Bangladesh.
+                        </div>
                     </div>
-
-                    <!-- Text description -->
                     <div class="program-text">
-                        <h3>Healthcare</h3>
-                        <p>Mobile health clinics and community health workers bring essential medical services to remote areas. Our programs focus on preventive care, maternal health, and treatment of common diseases.</p>
-                        
-                        <!-- Key statistics -->
+                        <h2>Healthcare Access Initiative</h2>
+                        <p>Mobile health clinics bringing essential medical services to remote areas across Bangladesh, focusing on maternal health, child healthcare, and preventive medicine to reduce health disparities.</p>
+                        <!-- Healthcare program statistics -->
                         <div class="program-stats">
                             <div class="stat">
                                 <span class="number">15,000+</span>
-                                <span class="label">Patients Served</span>
+                                <span class="label">Patients Served Annually</span>
                             </div>
                             <div class="stat">
                                 <span class="number">40%</span>
-                                <span class="label">Reduction in Child Mortality</span>
+                                <span class="label">Child Mortality Reduction</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">12</span>
+                                <span class="label">Mobile Clinics Operating</span>
                             </div>
                         </div>
+                        <p><strong>Services Provided:</strong> Primary healthcare, maternal and child health services, immunization programs, health education, and emergency medical care in underserved communities.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== EDUCATION PROGRAM ===== -->
-        <section class="program-detail">
+        <!-- Education Program Section - back to original layout -->
+        <section class="program-detail" data-category="education">
             <div class="container">
                 <div class="program-content">
-                    <!-- Text description -->
                     <div class="program-text">
-                        <h3>Education</h3>
-                        <p>Scholarship programs, school infrastructure development, and teacher training initiatives ensure quality education reaches every child. We also provide adult literacy programs for parents and community members.</p>
-                        
-                        <!-- Key statistics -->
+                        <h2>Education & Scholarship Program</h2>
+                        <p>Comprehensive education support including scholarships, school infrastructure development, and teacher training to ensure quality education for all children in Bangladesh, breaking the cycle of poverty through learning.</p>
+                        <!-- Education program statistics -->
                         <div class="program-stats">
                             <div class="stat">
                                 <span class="number">1,200+</span>
@@ -201,34 +926,39 @@
                                 <span class="number">85%</span>
                                 <span class="label">Graduation Rate</span>
                             </div>
+                            <div class="stat">
+                                <span class="number">45</span>
+                                <span class="label">Schools Partnered With</span>
+                            </div>
                         </div>
+                        <p><strong>Program Components:</strong> School fee scholarships, educational materials, school uniform provision, teacher training programs, and classroom infrastructure improvements in rural Bangladesh.</p>
                     </div>
-
-                    <!-- Image with Info button -->
                     <div class="program-image">
-                        <img src="images/education-program.jpg" alt="Children in classroom receiving education">
-                        <div class="info-text" onclick="showInfo('education')">© Info</div>
+                        <img src="images/education-classroom.jpg" alt="Children learning in Bangladesh classroom supported by Shakti Foundation education program">
+                        <div class="info-text">©</div>
+                        <div class="info-popup" id="education-info">
+                            <strong>Education Program:</strong> Supporting students with scholarships, educational resources, and school development to ensure quality education access across Bangladesh communities.
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== TRAINING INITIATIVES ===== -->
-        <section class="program-detail training">
+        <!-- Skills Training Program Section - alternating layout again -->
+        <section class="program-detail healthcare" data-category="training">
             <div class="container">
                 <div class="program-content">
-                    <!-- Image with Info button -->
                     <div class="program-image">
-                        <img src="images/training-program.jpg" alt="Women learning tailoring skills">
-                        <div class="info-text" onclick="showInfo('training')">© Info</div>
+                        <img src="images/training-tailoring.jpg" alt="Vocational skills training program participants learning tailoring at Shakti Foundation">
+                        <div class="info-text">©</div>
+                        <div class="info-popup" id="training-info">
+                            <strong>Skills Training Program:</strong> Vocational training for sustainable employment and entrepreneurship, providing marketable skills to women across Bangladesh.
+                        </div>
                     </div>
-
-                    <!-- Text description -->
                     <div class="program-text">
-                        <h3>Training Initiatives</h3>
-                        <p>Vocational training programs in tailoring, computer skills, agriculture, and handicrafts provide individuals with marketable skills. Our training centers are equipped with modern tools and experienced instructors.</p>
-                        
-                        <!-- Key statistics -->
+                        <h2>Vocational Skills Training</h2>
+                        <p>Comprehensive vocational training programs providing marketable skills for employment and entrepreneurship, focusing on trades that have high demand in local and regional markets across Bangladesh.</p>
+                        <!-- Skills training statistics -->
                         <div class="program-stats">
                             <div class="stat">
                                 <span class="number">800+</span>
@@ -238,209 +968,102 @@
                                 <span class="number">70%</span>
                                 <span class="label">Job Placement Rate</span>
                             </div>
+                            <div class="stat">
+                                <span class="number">6</span>
+                                <span class="label">Training Centers</span>
+                            </div>
                         </div>
+                        <p><strong>Training Focus:</strong> Practical skills development in high-demand sectors with comprehensive support for employment and entrepreneurship after program completion.</p>
+                        <!-- Button to view detailed training modules -->
+                        <a class="cta-link" onclick="showTrainingModules()">View Available Training Modules</a>
                     </div>
                 </div>
-
-                <!-- Help button for training -->
-                <div class="help-text" onclick="redirectToContact()">Q Help</div>
+                <!-- Help button for this specific program -->
+                <a href="enquiry.html" class="help-text">Q</a>
             </div>
         </section>
 
-        <!-- ===== POPUP BOXES (hidden until Info is clicked) ===== -->
-        <!-- Microfinance popup -->
-        <div id="microfinance-modal" class="info-modal">
-            <div class="info-modal-content">
-                <h3>Microfinance Program Details</h3>
-                <p>Our microfinance initiative provides small business loans ranging from ₹10,000 to ₹50,000 with flexible repayment terms. We offer financial literacy workshops covering budgeting, savings, and business management. The program specifically targets women entrepreneurs in rural areas, helping them establish sustainable income sources and achieve financial independence.</p>
-                <button class="close-modal" onclick="closeModal('microfinance-modal')">Close</button>
-            </div>
-        </div>
-
-        <!-- Healthcare popup -->
-        <div id="healthcare-modal" class="info-modal">
-            <div class="info-modal-content">
-                <h3>Healthcare Program Details</h3>
-                <p>Our healthcare program operates mobile clinics that visit remote villages weekly, providing free medical checkups, vaccinations, and essential medications. We focus on maternal and child health, offering prenatal care, immunization drives, and nutrition counseling. Our community health workers conduct door-to-door visits to ensure follow-up care and health education.</p>
-                <button class="close-modal" onclick="closeModal('healthcare-modal')">Close</button>
-            </div>
-        </div>
-
-        <!-- Education popup -->
-        <div id="education-modal" class="info-modal">
-            <div class="info-modal-content">
-                <h3>Education Program Details</h3>
-                <p>The education initiative provides scholarships for underprivileged children, school infrastructure development including computer labs and libraries, and teacher training programs. We also run adult literacy classes in evenings, helping parents gain basic reading and writing skills. Our after-school tutoring programs ensure children receive additional academic support.</p>
-                <button class="close-modal" onclick="closeModal('education-modal')">Close</button>
-            </div>
-        </div>
-
-        <!-- Training popup -->
-        <div id="training-modal" class="info-modal">
-            <div class="info-modal-content">
-                <h3>Training Initiatives Details</h3>
-                <p>Our vocational training programs include 3-month courses in tailoring, 6-month computer skills certification, agricultural best practices workshops, and traditional handicraft training. Each program includes practical hands-on training, business development guidance, and job placement assistance. We partner with local businesses to ensure our training meets market demands.</p>
-                <button class="close-modal" onclick="closeModal('training-modal')">Close</button>
-            </div>
-        </div>
-
-        <!-- ===== PROGRAM BENEFITS SECTION ===== -->
-        <section class="program-benefits">
-            <div class="container">
-                <h2>Program Benefits & Impact</h2>
-                
-                <div class="benefits-grid">
-                    <!-- Benefits for women and families -->
-                    <div class="benefit-card">
-                        <h4>For Women & Families</h4>
-                        <ul>
-                            <li>Sustainable income generation</li>
-                            <li>Improved healthcare access</li>
-                            <li>Education opportunities</li>
-                            <li>Skills development</li>
-                            <li>Financial independence</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Benefits for communities -->
-                    <div class="benefit-card">
-                        <h4>For Communities</h4>
-                        <ul>
-                            <li>Economic growth stimulation</li>
-                            <li>Reduced poverty rates</li>
-                            <li>Improved health outcomes</li>
-                            <li>Enhanced education levels</li>
-                            <li>Stronger social fabric</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Long-term impacts -->
-                    <div class="benefit-card">
-                        <h4>Long-term Impact</h4>
-                        <ul>
-                            <li>Gender equality advancement</li>
-                            <li>Breaking intergenerational poverty</li>
-                            <li>Community self-reliance</li>
-                            <li>Sustainable development</li>
-                            <li>Inspired future generations</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Statistical data with external sources -->
-                <div class="statistical-impact">
-                    <h3>Statistical Impact (2024)</h3>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-number">44.2%</span>
-                            <span class="stat-label">Women's Labor Force Participation</span>
-                            <span class="stat-source">(World Bank, 2025)</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">80.9%</span>
-                            <span class="stat-label">Men's Labor Force Participation</span>
-                            <span class="stat-source">(World Bank, 2025)</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">57</span>
-                            <span class="stat-label">Districts Served</span>
-                            <span class="stat-source">(Shakti Foundation, 2025)</span>
-                        </div>
-                    </div>
+        <!-- Enhanced Lightbox HTML - for viewing program images in full screen -->
+        <div class="lightbox" id="lightbox">
+            <!-- Close button for the lightbox -->
+            <button class="lightbox-close" onclick="closeLightbox()">×</button>
+            <!-- Navigation arrows for browsing multiple images -->
+            <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">❮</button>
+            <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">❯</button>
+            <!-- Counter showing current image position -->
+            <div class="lightbox-counter" id="lightboxCounter">1 / 4</div>
+            
+            <div class="lightbox-content">
+                <!-- Image that appears in the lightbox -->
+                <img class="lightbox-img" id="lightboxImg" src="" alt="Shakti Foundation program image showcasing women empowerment initiatives in Bangladesh">
+                <!-- Caption area for image description -->
+                <div class="lightbox-caption" id="lightboxCaption">
+                    <h3 id="lightboxTitle">Program Title</h3>
+                    <p id="lightboxDesc">Program description will appear here.</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- ===== OVERALL IMPACT SECTION ===== -->
-        <section class="impact-summary">
-            <div class="container">
-                <h2>Our Impact Across All Programs</h2>
-                <div class="impact-grid">
-                    <div class="impact-item">
-                        <span class="impact-number">57</span>
-                        <span class="impact-label">Districts Served</span>
-                    </div>
-                    <div class="impact-item">
-                        <span class="impact-number">475,199+</span>
-                        <span class="impact-label">Members Empowered</span>
-                    </div>
-                    <div class="impact-item">
-                        <span class="impact-number">92%</span>
-                        <span class="impact-label">Program Success Rate</span>
-                    </div>
-                    <div class="impact-item">
-                        <span class="impact-number">15</span>
-                        <span class="impact-label">Years of Service</span>
-                    </div>
+        <!-- Training Modules Modal - appears when training button is clicked -->
+        <div class="modal-overlay" id="trainingModal">
+            <div class="training-modal">
+                <div class="modal-header">
+                    <h2>Vocational Training Modules</h2>
+                    <!-- Close button for the modal -->
+                    <button class="close-modal" onclick="closeTrainingModules()">×</button>
                 </div>
+                <p>Our comprehensive vocational training programs in Bangladesh:</p>
+                <!-- List of available training modules -->
+                <ul class="training-modules-list">
+                    <li><strong>Tailoring & Garment Making</strong> (4 months) - Professional sewing and clothing production</li>
+                    <li><strong>Computer & Digital Skills</strong> (3 months) - Basic computing and digital literacy</li>
+                    <li><strong>Agriculture & Farming</strong> (6 months) - Sustainable farming techniques</li>
+                    <li><strong>Handicrafts & Artisan Skills</strong> (3 months) - Traditional and modern crafts</li>
+                    <li><strong>Small Business Management</strong> (2 months) - Entrepreneurship and business skills</li>
+                    <li><strong>Beauty & Wellness</strong> (3 months) - Beauty services and wellness practices</li>
+                </ul>
+                <p style="margin-top: 1rem; color: #FFD700;"><strong>All programs include job placement assistance and startup support for entrepreneurs.</strong></p>
             </div>
-        </section>
+        </div>
 
-        <!-- ===== CALL TO ACTION ===== -->
+        <!-- Call to Action Section - encourages support for our programs -->
         <section class="programs-cta">
             <div class="container">
-                <h2>Support Our Programs</h2>
-                <p>Your donation directly funds these life-changing initiatives and helps us expand our reach to more communities in need.</p>
+                <h2>Support Our Women Empowerment Programs</h2>
+                <p>Your donation helps us expand our reach to more communities across Bangladesh and create sustainable change through our comprehensive empowerment programs.</p>
                 <div class="cta-buttons">
-                    <a href="donate.html" class="btn-primary">Donate to a Program</a>
-                    <a href="enquiry.html" class="btn-secondary">Partner with Us</a>
+                    <!-- Donate button for financial support -->
+                    <a href="donate.html" class="btn-primary">Donate to Support Programs</a>
+                    <!-- Partner button for organizational collaborations -->
+                    <a href="enquiry.html" class="btn-secondary">Partner With Our Programs</a>
+                </div>
+                <!-- Trust indicators showing our reach and impact -->
+                <div style="margin-top: 2rem;">
+                    <p style="color: #FFD700;">✓ Programs operating in 57 districts across Bangladesh ✓ 475,000+ women empowered ✓ 30+ years of proven impact</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ===== FOOTER SECTION ===== -->
+    <!-- Footer with contact information and additional details -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Shakti Foundation. All rights reserved.</p>
-                <p>Contact: info@shaktifoundation.org | +91 98765 43210 | +91 98765 43210</p>
+            <p>&copy; 2025 Shakti Foundation. All rights reserved. | Women Empowerment Programs in Bangladesh</p>
+            <p>Contact: info@shaktifoundation.org | +91 98765 43210</p>
+            <p>123 Empowerment Street, Dhaka, Bangladesh</p>
+            <!-- Additional SEO content for search engines -->
+            <div style="margin-top: 1rem; font-size: 0.9rem; color: #CCCCCC;">
+                <p>Shakti Foundation - Providing microfinance, healthcare, education, and skills training programs for women's empowerment across Bangladesh since 1992.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ===== JAVASCRIPT FUNCTIONS ===== -->
     <script>
-        // Open the info popup based on program name (microfinance, healthcare, etc.)
-        function showInfo(program) {
-            const modal = document.getElementById(program + '-modal');
-            if (modal) {
-                modal.style.display = 'flex';
-            }
-        }
-
-        // Close the popup when the close button is clicked
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        // Redirect user to Contact page when Help is clicked
-        function redirectToContact() {
-            window.location.href = 'contact.html';
-        }
-
-        // Close popup if user clicks outside the popup box
-        window.addEventListener('click', function(event) {
-            const modals = document.querySelectorAll('.info-modal');
-            modals.forEach(modal => {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        });
-
-        // Close popup if user presses ESC key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                const modals = document.querySelectorAll('.info-modal');
-                modals.forEach(modal => {
-                    modal.style.display = 'none';
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+        // Program data for search and filtering functionality
+        const programData = [
+            {
+                id: 1,
+                title: "Microfinance Program for Women Entrepreneurs",
+                category: "microfinance",
+                description: "Small business loans and financial literacy training for women entrepreneurs in Bangladesh.",
+                stats: "2
