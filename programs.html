@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Ensures text displays correctly with special characters and symbols -->
+    <!-- This helps the browser display text correctly, especially important for different languages -->
     <meta charset="UTF-8">
-    <!-- Makes the website adapt to different screen sizes like phones and tablets -->
+    <!-- Makes sure the website looks good on phones, tablets, and computers -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Clear page title that tells visitors this page shows our women empowerment programs in Bangladesh -->
+    <!-- This title appears in browser tabs and search results - important for SEO -->
     <title>Our Programs - Shakti Foundation | Women Empowerment Initiatives in Bangladesh</title>
-    <!-- Brief description that appears in search results explaining our various programs -->
+    <!-- This description shows up under our link in Google search results -->
     <meta name="description" content="Explore Shakti Foundation's women empowerment programs in Bangladesh: microfinance loans, healthcare clinics, education scholarships, and vocational skills training creating sustainable change.">
-    <!-- Keywords to help people find our programs through search engines -->
+    <!-- These keywords help people find our programs when they search online -->
     <meta name="keywords" content="Shakti Foundation programs, microfinance Bangladesh, healthcare initiatives, education programs, skills training, vocational training, women empowerment projects, NGO Bangladesh programs">
-    <!-- Identifies our organization as the content creator -->
+    <!-- Shows that our organization created this content -->
     <meta name="author" content="Shakti Foundation">
-    <!-- Instructions for search engines to index this page and follow links -->
+    <!-- Tells search engines it's okay to show this page in search results and follow our links -->
     <meta name="robots" content="index, follow">
     
-    <!-- Links to our main design file for consistent branding -->
+    <!-- Links to our main design file that makes everything look consistent -->
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Main theme colors - black background with gold and red accents */
+        /* Main website colors - black background with gold and red accents that match our brand */
         body {
             background: #000;
             color: white;
@@ -28,7 +28,7 @@
             font-family: Arial, sans-serif;
         }
         
-        /* Header styling with navigation - consistent with other pages */
+        /* Top navigation area that appears on every page */
         header {
             background: #000;
             border-bottom: 2px solid #ffd700;
@@ -44,7 +44,7 @@
             padding: 0 20px;
         }
         
-        /* Logo section styling */
+        /* Our organization logo and name styling */
         .logo {
             display: flex;
             flex-direction: column;
@@ -65,7 +65,7 @@
             font-weight: normal;
         }
         
-        /* Navigation menu with hover effects */
+        /* Main navigation menu - helps visitors move between different pages */
         .nav-menu {
             display: flex;
             list-style: none;
@@ -83,16 +83,18 @@
             font-weight: 500;
         }
         
+        /* When someone hovers over menu items, they turn gold */
         .nav-menu a:hover {
             color: #ffd700;
             background: rgba(255, 215, 0, 0.1);
         }
         
+        /* Highlights which page the visitor is currently viewing */
         .nav-menu a.active {
             color: #ffd700;
         }
         
-        /* Donate button styling - prominent red color */
+        /* Donate button stands out in red to encourage support */
         .donate-button {
             background: #ff0000;
             color: white;
@@ -109,7 +111,7 @@
             background: #cc0000;
         }
         
-        /* Search & Filter Styles - helps visitors find specific programs */
+        /* Search and filter section - helps visitors find specific programs quickly */
         .search-filter-section {
             background: #1a1a1a;
             padding: 2rem 0;
@@ -124,6 +126,7 @@
             flex-wrap: wrap;
         }
 
+        /* Search box where visitors can type what they're looking for */
         .search-input {
             flex: 1;
             max-width: 400px;
@@ -140,6 +143,7 @@
             border-color: #B22222;
         }
 
+        /* Search button that visitors click to find programs */
         .search-btn {
             background: #B22222;
             color: white;
@@ -157,6 +161,7 @@
             color: #000000;
         }
 
+        /* Filter buttons to narrow down programs by category */
         .filter-buttons {
             display: flex;
             gap: 1rem;
@@ -176,18 +181,21 @@
             font-weight: bold;
         }
 
+        /* Shows which filter is currently active */
         .filter-btn.active,
         .filter-btn:hover {
             background: #FFD700;
             color: #000000;
         }
 
+        /* Area where search results appear */
         .search-results {
             display: none;
             margin-top: 2rem;
             animation: fadeIn 0.5s ease;
         }
 
+        /* Individual search result items */
         .result-item {
             background: #2a2a2a;
             padding: 1.5rem;
@@ -208,6 +216,7 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Message shown when no programs match the search */
         .no-results {
             text-align: center;
             color: #CCCCCC;
@@ -215,6 +224,7 @@
             padding: 2rem;
         }
 
+        /* Small badges showing program statistics */
         .stat-badge {
             background: #B22222;
             color: white;
@@ -226,7 +236,7 @@
             margin-top: 0.5rem;
         }
         
-        /* Lightbox Styles - for viewing program images in detail */
+        /* Lightbox styling - for viewing program images in full screen */
         .lightbox {
             display: none;
             position: fixed;
@@ -294,6 +304,7 @@
             transition: opacity 0.3s ease;
         }
 
+        /* Button to close the lightbox */
         .lightbox-close {
             position: absolute;
             top: 15px;
@@ -316,6 +327,7 @@
             transform: scale(1.1);
         }
 
+        /* Shows which image you're viewing (e.g., "2 of 4") */
         .lightbox-counter {
             position: absolute;
             top: 15px;
@@ -327,7 +339,7 @@
             font-weight: bold;
         }
 
-        /* Lightbox Navigation Arrows - for browsing multiple images */
+        /* Navigation arrows for moving between images in lightbox */
         .lightbox-nav {
             position: absolute;
             top: 50%;
@@ -359,7 +371,7 @@
             right: 20px;
         }
 
-        /* Make existing program images clickable for lightbox viewing */
+        /* Makes all program images clickable to open lightbox */
         .program-image {
             position: relative;
             cursor: pointer;
@@ -374,6 +386,7 @@
             transform: scale(1.02);
         }
 
+        /* Shows a hint that images can be clicked for more details */
         .program-image::after {
             content: '🔍 Click to view details';
             position: absolute;
@@ -393,7 +406,7 @@
             opacity: 1;
         }
         
-        /* Hero section styling for programs page */
+        /* Main hero section at the top of the programs page */
         .programs-hero {
             background: #000;
             color: white;
@@ -408,7 +421,7 @@
             padding: 0 20px;
         }
         
-        /* Program sections with alternating backgrounds for visual interest */
+        /* Individual program sections with alternating backgrounds for visual interest */
         .program-detail {
             padding: 4rem 0;
             background: #000;
@@ -419,7 +432,7 @@
             background: #1a1a1a;
         }
         
-        /* Program content layout - text and images side by side */
+        /* Layout for program content - text on one side, image on the other */
         .program-content {
             display: flex;
             gap: 3rem;
@@ -440,7 +453,7 @@
             border-radius: 8px;
         }
         
-        /* Statistics display for each program */
+        /* Statistics display showing program impact numbers */
         .program-stats {
             display: flex;
             gap: 1rem;
@@ -463,7 +476,7 @@
             color: #ffd700;
         }
         
-        /* Training modules button styling */
+        /* Button to view training modules */
         .cta-link {
             background: #ffd700;
             color: #000;
@@ -483,7 +496,7 @@
             color: #ffd700;
         }
         
-        /* Large info buttons with hover effects */
+        /* Circular info buttons that appear on program images */
         .info-text {
             position: absolute;
             top: 15px;
@@ -509,7 +522,7 @@
             transform: scale(1.1);
         }
         
-        /* Info popup styling that appears when info button is clicked */
+        /* Popup that appears when info button is clicked */
         .info-popup {
             display: none;
             position: absolute;
@@ -528,7 +541,7 @@
             display: block;
         }
         
-        /* Large help buttons linking to enquiry page */
+        /* Help buttons that link to our enquiry page */
         .help-text {
             position: absolute;
             bottom: 20px;
@@ -555,7 +568,7 @@
             transform: scale(1.1);
         }
         
-        /* Training modules modal - appears when training button is clicked */
+        /* Overlay for training modules modal */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -573,6 +586,7 @@
             display: flex;
         }
         
+        /* Modal window showing available training modules */
         .training-modal {
             background: #1a1a1a;
             border: 2px solid #ffd700;
@@ -612,7 +626,7 @@
             border-bottom: 1px solid #333;
         }
         
-        /* Call to Action section at the bottom of the page */
+        /* Final call-to-action section encouraging support */
         .programs-cta {
             padding: 4rem 0;
             background: #1a1a1a;
@@ -642,7 +656,7 @@
             margin: 10px;
         }
         
-        /* Footer styling consistent with other pages */
+        /* Footer at the bottom of the page */
         footer {
             background: #000;
             color: white;
@@ -651,7 +665,7 @@
             border-top: 2px solid #ffd700;
         }
         
-        /* Mobile responsive design adjustments */
+        /* Adjusts layout for mobile phones and tablets */
         @media (max-width: 768px) {
             .program-content {
                 flex-direction: column;
@@ -717,7 +731,7 @@
             }
         }
         
-        /* Additional SEO-rich content styling for program benefits */
+        /* Section explaining the benefits of our programs */
         .program-benefits {
             padding: 3rem 0;
             background: #000;
@@ -744,32 +758,32 @@
     </style>
 </head>
 <body>
-    <!-- Header with navigation menu - consistent across all pages -->
+    <!-- Header section that appears at the top of every page -->
     <header>
         <div class="header-container">
-            <!-- Organization logo and name -->
+            <!-- Our organization name and tagline -->
             <div class="logo">
                 <h1>SHAKTI</h1>
                 <p>Empowering Women</p>
             </div>
-            <!-- Main navigation links to other pages -->
+            <!-- Navigation menu to help visitors move around the website -->
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <!-- Current page is highlighted to show visitors where they are -->
+                    <!-- Current page is highlighted so visitors know where they are -->
                     <li><a href="programs.html" class="active">Programs</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="enquiry.html">Enquiry</a></li>
                 </ul>
             </nav>
-            <!-- Donate button - always visible to encourage support -->
+            <!-- Donate button that stands out to encourage support -->
             <a href="donate.html" class="donate-button">DONATE NOW</a>
         </div>
     </header>
 
     <main>
-        <!-- Hero section introducing all our programs -->
+        <!-- Hero section introducing all our empowerment programs -->
         <section class="programs-hero">
             <div class="container">
                 <h1>Women Empowerment Programs in Bangladesh</h1>
@@ -777,20 +791,20 @@
             </div>
         </section>
 
-        <!-- Search & Filter Section - helps visitors find specific programs quickly -->
+        <!-- Search and filter section to help visitors find specific programs -->
         <section class="search-filter-section">
             <div class="container">
                 <h2>Find the Right Program</h2>
                 <p class="section-subtitle">Search and filter our women empowerment programs to find the initiatives that interest you most</p>
                 
                 <div class="search-container">
-                    <!-- Search input field for finding programs -->
+                    <!-- Search box where visitors can type keywords -->
                     <input type="text" id="programSearch" placeholder="Search women empowerment programs... (e.g., microfinance loans, healthcare, education scholarships)" class="search-input">
                     <!-- Button to execute the search -->
                     <button onclick="searchPrograms()" class="search-btn">Search Programs</button>
                 </div>
                 
-                <!-- Filter buttons to narrow down program categories -->
+                <!-- Filter buttons to narrow down programs by category -->
                 <div class="filter-buttons">
                     <button class="filter-btn active" onclick="filterPrograms('all')">All Programs</button>
                     <button class="filter-btn" onclick="filterPrograms('microfinance')">Microfinance</button>
@@ -799,34 +813,34 @@
                     <button class="filter-btn" onclick="filterPrograms('training')">Skills Training</button>
                 </div>
                 
-                <!-- Container where search results will appear -->
+                <!-- This is where search results will appear -->
                 <div class="search-results" id="searchResults">
-                    <!-- Dynamic results will appear here when users search -->
+                    <!-- Search results will be dynamically added here by JavaScript -->
                 </div>
             </div>
         </section>
 
-        <!-- Program Benefits Section - explains why our programs work -->
+        <!-- Section explaining the key benefits of our programs -->
         <section class="program-benefits">
             <div class="container">
                 <h2>Why Our Programs Create Lasting Impact</h2>
                 <div class="benefits-grid">
-                    <!-- Benefit 1: Economic independence -->
+                    <!-- Economic independence benefit -->
                     <div class="benefit-card">
                         <h4>🏠 Economic Independence</h4>
                         <p>Our programs focus on creating sustainable income sources through microfinance and entrepreneurship training, helping women achieve financial independence.</p>
                     </div>
-                    <!-- Benefit 2: Education access -->
+                    <!-- Education access benefit -->
                     <div class="benefit-card">
                         <h4>🎓 Education Access</h4>
                         <p>We break barriers to education through scholarships and school development programs, creating opportunities for children and adults alike.</p>
                     </div>
-                    <!-- Benefit 3: Healthcare equity -->
+                    <!-- Healthcare equity benefit -->
                     <div class="benefit-card">
                         <h4>🏥 Healthcare Equity</h4>
                         <p>Mobile clinics and preventive care programs ensure remote communities receive essential medical services, reducing health disparities.</p>
                     </div>
-                    <!-- Benefit 4: Skills development -->
+                    <!-- Skills development benefit -->
                     <div class="benefit-card">
                         <h4>🔧 Skills Development</h4>
                         <p>Vocational training provides marketable skills that lead to employment and entrepreneurship opportunities across Bangladesh.</p>
@@ -835,14 +849,14 @@
             </div>
         </section>
 
-        <!-- Microfinance Program Section - detailed information about this program -->
+        <!-- Detailed section about our microfinance program -->
         <section class="program-detail" data-category="microfinance">
             <div class="container">
                 <div class="program-content">
                     <div class="program-text">
                         <h2>Microfinance for Women Entrepreneurs</h2>
                         <p>Small business loans and comprehensive financial literacy training to help women start and grow sustainable businesses across Bangladesh. Our microfinance program has empowered thousands of women to become successful entrepreneurs.</p>
-                        <!-- Program statistics showing impact numbers -->
+                        <!-- Statistics showing the program's impact -->
                         <div class="program-stats">
                             <div class="stat">
                                 <span class="number">2,500+</span>
@@ -860,21 +874,21 @@
                         <p><strong>Program Features:</strong> Small business loans (¥500-¥50,000), financial literacy workshops, business planning support, and ongoing mentorship from experienced entrepreneurs.</p>
                     </div>
                     <div class="program-image">
-                        <!-- Program image that can be clicked for lightbox view -->
+                        <!-- Program image that can be clicked for more details -->
                         <img src="images/microfinance-women-group.jpg" alt="Women entrepreneurs participating in Shakti Foundation microfinance program in Bangladesh">
-                        <!-- Info button - click to show program details popup -->
+                        <!-- Info button that shows additional details when clicked -->
                         <div class="info-text">©</div>
                         <div class="info-popup" id="microfinance-info">
                             <strong>Microfinance Program Impact:</strong> Helping women entrepreneurs with small business loans and financial training to create sustainable livelihoods across 57 districts in Bangladesh.
                         </div>
                     </div>
                 </div>
-                <!-- Help button - links to enquiry page for more information -->
+                <!-- Help button that links to our enquiry page -->
                 <a href="enquiry.html" class="help-text">Q</a>
             </div>
         </section>
 
-        <!-- Healthcare Program Section - alternating layout for visual variety -->
+        <!-- Healthcare program section with alternating layout -->
         <section class="program-detail healthcare" data-category="healthcare">
             <div class="container">
                 <div class="program-content">
@@ -909,7 +923,7 @@
             </div>
         </section>
 
-        <!-- Education Program Section - back to original layout -->
+        <!-- Education program section -->
         <section class="program-detail" data-category="education">
             <div class="container">
                 <div class="program-content">
@@ -944,7 +958,7 @@
             </div>
         </section>
 
-        <!-- Skills Training Program Section - alternating layout again -->
+        <!-- Skills training program section -->
         <section class="program-detail healthcare" data-category="training">
             <div class="container">
                 <div class="program-content">
@@ -974,7 +988,7 @@
                             </div>
                         </div>
                         <p><strong>Training Focus:</strong> Practical skills development in high-demand sectors with comprehensive support for employment and entrepreneurship after program completion.</p>
-                        <!-- Button to view detailed training modules -->
+                        <!-- Button that opens the training modules modal -->
                         <a class="cta-link" onclick="showTrainingModules()">View Available Training Modules</a>
                     </div>
                 </div>
@@ -983,20 +997,15 @@
             </div>
         </section>
 
-        <!-- Enhanced Lightbox HTML - for viewing program images in full screen -->
+        <!-- Lightbox for viewing program images in full screen -->
         <div class="lightbox" id="lightbox">
-            <!-- Close button for the lightbox -->
             <button class="lightbox-close" onclick="closeLightbox()">×</button>
-            <!-- Navigation arrows for browsing multiple images -->
             <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">❮</button>
             <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">❯</button>
-            <!-- Counter showing current image position -->
             <div class="lightbox-counter" id="lightboxCounter">1 / 4</div>
             
             <div class="lightbox-content">
-                <!-- Image that appears in the lightbox -->
                 <img class="lightbox-img" id="lightboxImg" src="" alt="Shakti Foundation program image showcasing women empowerment initiatives in Bangladesh">
-                <!-- Caption area for image description -->
                 <div class="lightbox-caption" id="lightboxCaption">
                     <h3 id="lightboxTitle">Program Title</h3>
                     <p id="lightboxDesc">Program description will appear here.</p>
@@ -1004,16 +1013,15 @@
             </div>
         </div>
 
-        <!-- Training Modules Modal - appears when training button is clicked -->
+        <!-- Modal window showing detailed training modules -->
         <div class="modal-overlay" id="trainingModal">
             <div class="training-modal">
                 <div class="modal-header">
                     <h2>Vocational Training Modules</h2>
-                    <!-- Close button for the modal -->
+                    <!-- Close button for the modal window -->
                     <button class="close-modal" onclick="closeTrainingModules()">×</button>
                 </div>
                 <p>Our comprehensive vocational training programs in Bangladesh:</p>
-                <!-- List of available training modules -->
                 <ul class="training-modules-list">
                     <li><strong>Tailoring & Garment Making</strong> (4 months) - Professional sewing and clothing production</li>
                     <li><strong>Computer & Digital Skills</strong> (3 months) - Basic computing and digital literacy</li>
@@ -1026,18 +1034,18 @@
             </div>
         </div>
 
-        <!-- Call to Action Section - encourages support for our programs -->
+        <!-- Final call-to-action section encouraging support -->
         <section class="programs-cta">
             <div class="container">
                 <h2>Support Our Women Empowerment Programs</h2>
                 <p>Your donation helps us expand our reach to more communities across Bangladesh and create sustainable change through our comprehensive empowerment programs.</p>
                 <div class="cta-buttons">
-                    <!-- Donate button for financial support -->
+                    <!-- Button to donate and support our programs -->
                     <a href="donate.html" class="btn-primary">Donate to Support Programs</a>
-                    <!-- Partner button for organizational collaborations -->
+                    <!-- Button to explore partnership opportunities -->
                     <a href="enquiry.html" class="btn-secondary">Partner With Our Programs</a>
                 </div>
-                <!-- Trust indicators showing our reach and impact -->
+                <!-- Trust indicators showing our organization's reach and impact -->
                 <div style="margin-top: 2rem;">
                     <p style="color: #FFD700;">✓ Programs operating in 57 districts across Bangladesh ✓ 475,000+ women empowered ✓ 30+ years of proven impact</p>
                 </div>
@@ -1051,7 +1059,7 @@
             <p>&copy; 2025 Shakti Foundation. All rights reserved. | Women Empowerment Programs in Bangladesh</p>
             <p>Contact: info@shaktifoundation.org | +91 98765 43210</p>
             <p>123 Empowerment Street, Dhaka, Bangladesh</p>
-            <!-- Additional SEO content for search engines -->
+            <!-- Additional content for search engine optimization -->
             <div style="margin-top: 1rem; font-size: 0.9rem; color: #CCCCCC;">
                 <p>Shakti Foundation - Providing microfinance, healthcare, education, and skills training programs for women's empowerment across Bangladesh since 1992.</p>
             </div>
@@ -1059,11 +1067,327 @@
     </footer>
 
     <script>
-        // Program data for search and filtering functionality
+        // This data powers the search and filter functionality
         const programData = [
             {
                 id: 1,
                 title: "Microfinance Program for Women Entrepreneurs",
                 category: "microfinance",
                 description: "Small business loans and financial literacy training for women entrepreneurs in Bangladesh.",
-                stats: "2
+                stats: "2,500+ loans disbursed • 95% repayment rate • 70% business success",
+                fullDescription: "Our microfinance initiative provides small business loans and financial literacy training to women entrepreneurs across Bangladesh. We've helped over 2,500 women start sustainable businesses with a 95% repayment rate, creating economic independence and community growth in 57 districts."
+            },
+            {
+                id: 2,
+                title: "Healthcare Services & Mobile Clinics",
+                category: "healthcare", 
+                description: "Mobile health clinics bringing essential medical care to remote communities in Bangladesh.",
+                stats: "15,000+ patients served • 40% reduction in child mortality • 12 mobile clinics",
+                fullDescription: "Through our mobile health clinics, we bring essential medical care to remote communities across Bangladesh. Serving over 15,000 patients annually, we've achieved a 40% reduction in child mortality through preventive care and maternal health services in underserved regions."
+            },
+            {
+                id: 3,
+                title: "Education & Scholarship Program",
+                category: "education",
+                description: "Scholarships and school development for quality education for all children in Bangladesh.",
+                stats: "1,200+ students supported • 85% graduation rate • 45 partner schools", 
+                fullDescription: "Our education initiatives provide scholarships, school infrastructure development, and teacher training across Bangladesh. We've supported 1,200+ students with an 85% graduation rate, breaking the cycle of poverty through quality education for all children in rural and urban communities."
+            },
+            {
+                id: 4,
+                title: "Vocational Skills Training Program",
+                category: "training",
+                description: "Vocational training programs providing marketable skills for employment in Bangladesh.",
+                stats: "800+ trainees certified • 70% job placement rate • 6 training centers",
+                fullDescription: "Vocational training programs in tailoring, computer skills, agriculture, and handicrafts provide individuals with marketable skills across Bangladesh. With 800+ certified trainees and a 70% job placement rate, we're creating sustainable employment opportunities and entrepreneurship in local communities."
+            }
+        ];
+
+        // Handles searching through our programs
+        function searchPrograms() {
+            const searchTerm = document.getElementById('programSearch').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('searchResults');
+            
+            // If search is empty, show all programs
+            if (!searchTerm) {
+                showAllPrograms();
+                return;
+            }
+            
+            // Filter programs based on search term
+            const filteredPrograms = programData.filter(program => 
+                program.title.toLowerCase().includes(searchTerm) ||
+                program.description.toLowerCase().includes(searchTerm) ||
+                program.category.toLowerCase().includes(searchTerm) ||
+                program.fullDescription.toLowerCase().includes(searchTerm)
+            );
+            
+            displaySearchResults(filteredPrograms, searchTerm);
+        }
+
+        // Filters programs by category (microfinance, healthcare, etc.)
+        function filterPrograms(category) {
+            // Update which filter button looks active
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const resultsContainer = document.getElementById('searchResults');
+            
+            // Show all programs if "all" is selected
+            if (category === 'all') {
+                showAllPrograms();
+                return;
+            }
+            
+            // Filter programs by the selected category
+            const filteredPrograms = programData.filter(program => program.category === category);
+            displaySearchResults(filteredPrograms, category);
+        }
+
+        // Shows all programs (default view)
+        function showAllPrograms() {
+            const resultsContainer = document.getElementById('searchResults');
+            resultsContainer.style.display = 'none';
+            
+            // Make all program sections visible
+            document.querySelectorAll('.program-detail').forEach(section => {
+                section.style.display = 'block';
+            });
+            
+            // Clear the search input
+            document.getElementById('programSearch').value = '';
+        }
+
+        // Displays search results in the results container
+        function displaySearchResults(programs, searchTerm) {
+            const resultsContainer = document.getElementById('searchResults');
+            const originalSections = document.querySelectorAll('.program-detail');
+            
+            // Hide the original program sections when showing search results
+            originalSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show message if no programs found
+            if (programs.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="no-results">
+                        <h3>No programs found for "${searchTerm}"</h3>
+                        <p>Try searching for: microfinance, healthcare, education, or skills training programs in Bangladesh</p>
+                    </div>
+                `;
+            } else {
+                // Display the matching programs
+                resultsContainer.innerHTML = programs.map(program => `
+                    <div class="result-item" onclick="scrollToProgram(${program.id})">
+                        <h4>${program.title}</h4>
+                        <p>${program.description}</p>
+                        <div class="stat-badge">${program.stats}</div>
+                        <p><em>Click to view full program details</em></p>
+                    </div>
+                `).join('');
+            }
+            
+            resultsContainer.style.display = 'block';
+        }
+
+        // Scrolls to the original program section when a search result is clicked
+        function scrollToProgram(programId) {
+            const originalSections = document.querySelectorAll('.program-detail');
+            originalSections.forEach(section => {
+                section.style.display = 'block';
+            });
+            
+            document.getElementById('searchResults').style.display = 'none';
+            
+            // Reset filter buttons to show "all programs" as active
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.filter-btn').classList.add('active');
+            
+            // Smoothly scroll to the program section
+            const programSection = document.querySelectorAll('.program-detail')[programId - 1];
+            programSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Briefly highlight the section
+            programSection.style.background = '#2a2a2a';
+            programSection.style.transition = 'background 0.5s ease';
+            setTimeout(() => {
+                programSection.style.background = '';
+            }, 2000);
+        }
+
+        // Allows pressing Enter to search instead of clicking the button
+        document.getElementById('programSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchPrograms();
+            }
+        });
+
+        // Lightbox functionality for viewing program images
+        let currentImageIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxDesc = document.getElementById('lightboxDesc');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+
+        // Sets up click events for all program images when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make all program images clickable to open lightbox
+            const programImageElements = document.querySelectorAll('.program-image img');
+            programImageElements.forEach((img, index) => {
+                img.addEventListener('click', function() {
+                    openLightbox(index);
+                });
+            });
+            
+            // Also make info buttons open lightbox
+            const infoButtons = document.querySelectorAll('.info-text');
+            infoButtons.forEach((info, index) => {
+                info.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent the image click from also triggering
+                    openLightbox(index);
+                });
+            });
+        });
+
+        // Opens the lightbox with a specific image
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling while lightbox is open
+        }
+
+        // Closes the lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = ''; // Re-enable scrolling
+        }
+
+        // Updates the lightbox content with smooth transitions
+        function updateLightbox() {
+            const currentImage = programImages[currentImageIndex];
+            
+            // Fade out current content
+            lightboxImg.style.opacity = '0';
+            lightboxTitle.style.opacity = '0';
+            lightboxDesc.style.opacity = '0';
+            
+            // Update content after fade out
+            setTimeout(() => {
+                lightboxImg.src = currentImage.src;
+                lightboxImg.alt = currentImage.title;
+                lightboxTitle.textContent = currentImage.title;
+                lightboxDesc.textContent = currentImage.description;
+                lightboxCounter.textContent = `${currentImageIndex + 1} / ${programImages.length}`;
+                
+                // Fade in new content
+                setTimeout(() => {
+                    lightboxImg.style.opacity = '1';
+                    lightboxTitle.style.opacity = '1';
+                    lightboxDesc.style.opacity = '1';
+                }, 50);
+            }, 200);
+        }
+
+        // Navigates between images in the lightbox
+        function navigateLightbox(direction) {
+            currentImageIndex += direction;
+            
+            // Loop around to beginning if at end, or to end if at beginning
+            if (currentImageIndex >= programImages.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = programImages.length - 1;
+            }
+            
+            updateLightbox();
+        }
+
+        // Adds keyboard navigation for lightbox (arrow keys and escape)
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('active')) return;
+            
+            switch(e.key) {
+                case 'Escape':
+                    closeLightbox();
+                    break;
+                case 'ArrowLeft':
+                    navigateLightbox(-1);
+                    break;
+                case 'ArrowRight':
+                    navigateLightbox(1);
+                    break;
+            }
+        });
+
+        // Closes lightbox when clicking outside the image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Data for the lightbox images and descriptions
+        const programImages = [
+            {
+                src: "images/microfinance-women-group.jpg",
+                title: "Microfinance Program for Women Entrepreneurs",
+                description: "Our microfinance initiative provides small business loans and financial literacy training to women entrepreneurs across Bangladesh. We've helped over 2,500 women start sustainable businesses with a 95% repayment rate, creating economic independence and community growth in 57 districts."
+            },
+            {
+                src: "images/healthcare-mobile-clinic.jpg", 
+                title: "Healthcare Services & Mobile Clinics",
+                description: "Through our mobile health clinics, we bring essential medical care to remote communities across Bangladesh. Serving over 15,000 patients annually, we've achieved a 40% reduction in child mortality through preventive care and maternal health services in underserved regions."
+            },
+            {
+                src: "images/education-classroom.jpg",
+                title: "Education & Scholarship Program",
+                description: "Our education initiatives provide scholarships, school infrastructure development, and teacher training across Bangladesh. We've supported 1,200+ students with an 85% graduation rate, breaking the cycle of poverty through quality education for all children in rural and urban communities."
+            },
+            {
+                src: "images/training-tailoring.jpg",
+                title: "Vocational Skills Training Program",
+                description: "Vocational training programs in tailoring, computer skills, agriculture, and handicrafts provide individuals with marketable skills across Bangladesh. With 800+ certified trainees and a 70% job placement rate, we're creating sustainable employment opportunities and entrepreneurship in local communities."
+            }
+        ];
+
+        // Existing functions for info popups and training modules
+        function toggleInfo(infoId) {
+            document.querySelectorAll('.info-popup').forEach(popup => {
+                popup.classList.remove('active');
+            });
+            
+            const infoPopup = document.getElementById(infoId);
+            infoPopup.classList.toggle('active');
+            
+            document.addEventListener('click', function closePopup(e) {
+                if (!e.target.closest('.info-text') && !e.target.closest('.info-popup')) {
+                    infoPopup.classList.remove('active');
+                    document.removeEventListener('click', closePopup);
+                }
+            });
+        }
+        
+        // Shows the training modules modal
+        function showTrainingModules() {
+            document.getElementById('trainingModal').classList.add('active');
+        }
+        
+        // Closes the training modules modal
+        function closeTrainingModules() {
+            document.getElementById('trainingModal').classList.remove('active');
+        }
+        
+        // Closes modal when clicking outside the modal content
+        document.getElementById('trainingModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeTrainingModules();
+            }
+        });
+    </script>
+</body>
+</html>
+        
+     
