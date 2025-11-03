@@ -1,47 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Ensures proper text rendering across different browsers and devices -->
     <meta charset="UTF-8">
-    <!-- Ensures the site is mobile-friendly by adjusting to screen size -->
+    <!-- Makes the website responsive and user-friendly on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Shakti Foundation</title>
-
-    <!-- Linking external stylesheet for global styles -->
+    
+    <!-- Clear title that tells visitors and search engines what this page is about -->
+    <title>About Us - Shakti Foundation | Our Mission & History</title>
+    <!-- Brief summary that appears in search engine results to attract relevant visitors -->
+    <meta name="description" content="Learn about Shakti Foundation's history since 1992, our mission to empower women in Bangladesh, and meet our leadership team including founder Dr. Humaira Islam.">
+    <!-- Relevant keywords to help people find our organization through search engines -->
+    <meta name="keywords" content="about Shakti Foundation, Dr. Humaira Islam, women empowerment Bangladesh, microfinance programs, NGO leadership, our mission, our history">
+    <!-- Identifies our organization as the content creator -->
+    <meta name="author" content="Shakti Foundation">
+    <!-- Instructions for search engines to index this page and follow links -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Links to our main stylesheet for consistent branding and design -->
     <link rel="stylesheet" href="css/style.css">
-
+    
+    <!-- Additional styling specific to the About Us page -->
     <style>
-        /* ---------- Extra Styling for Expandable Sections ---------- */
-
-        /* Text elements that can be clicked to show/hide more content */
+        /* ============================================ */
+        /* INTERACTIVE CONTENT STYLES */
+        /* ============================================ */
+        
+        /* Makes informational text elements stand out and appear clickable */
         .info-text {
             cursor: pointer;
             transition: all 0.3s ease;
+            padding: 8px 12px;
+            background: #2a2a2a;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 5px 0;
         }
         
-        /* Hover effect for interactive text */
+        /* Visual feedback when users hover over interactive elements */
         .info-text:hover {
-            background-color: #FFFFFF;
+            background-color: #FFD700;
             color: #000000;
-            transform: scale(1.05); /* Grows slightly when hovered */
+            transform: scale(1.05);
         }
         
-        /* Hidden content sections - revealed when 'show' class is applied */
+        /* Hidden content areas that expand when users want more information */
         .expandable-content {
             display: none;
             padding: 1rem;
             background: #1a1a1a;
             border-radius: 8px;
             margin-top: 1rem;
-            border-left: 4px solid #FFD700; /* Gold accent border */
+            border-left: 4px solid #FFD700;
         }
         
-        /* Fade-in animation for normal expandable content */
+        /* Shows hidden content with a smooth appearance effect */
         .expandable-content.show {
             display: block;
             animation: fadeIn 0.3s ease;
         }
         
-        /* Special styling for the founder’s biography section */
+        /* Special container for the founder's detailed story */
         .founder-expandable {
             display: none;
             padding: 2rem;
@@ -51,19 +70,19 @@
             border: 2px solid #FFD700;
         }
         
-        /* Founder story expands with a slide-down effect */
+        /* Displays the founder's story with an engaging animation */
         .founder-expandable.show {
             display: block;
             animation: slideDown 0.5s ease;
         }
         
-        /* Smooth fade-in animation */
+        /* Simple fade-in effect for showing hidden content */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
         
-        /* Slide-down animation for larger reveals */
+        /* Smooth slide-down animation for larger content sections */
         @keyframes slideDown {
             from { 
                 opacity: 0;
@@ -75,9 +94,9 @@
             }
         }
         
-        /* Close button styling inside expandable sections */
+        /* Clear button design for closing expanded sections */
         .close-btn {
-            background: #B22222; /* Dark red */
+            background: #B22222;
             color: white;
             border: none;
             padding: 8px 16px;
@@ -85,29 +104,111 @@
             cursor: pointer;
             margin-top: 1rem;
             font-weight: bold;
+            transition: all 0.3s ease;
         }
         
-        /* Close button hover effect - switches to gold */
+        /* Visual feedback for the close button on hover */
         .close-btn:hover {
             background: #FFD700;
             color: #000000;
+            transform: scale(1.05);
+        }
+
+        /* ============================================ */
+        /* FAQ SECTION STYLES */
+        /* ============================================ */
+        
+        /* Background styling for the FAQ section to distinguish it */
+        .faq-section {
+            padding: 4rem 0;
+            background: #1a1a1a;
+        }
+        
+        /* Container to keep FAQ items organized and properly spaced */
+        .faq-accordion {
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        
+        /* Individual FAQ item container with clean borders */
+        .faq-item {
+            background: #2a2a2a;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #333;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        /* Clickable question area with clear visual hierarchy */
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Subtle hover effect to indicate interactivity */
+        .faq-question:hover {
+            background: #333;
+        }
+        
+        /* Question text styled in our brand gold color */
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #FFD700;
+        }
+        
+        /* Plus icon that transforms to indicate expand/collapse */
+        .faq-icon {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Answer area that expands smoothly when activated */
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: #222;
+        }
+        
+        /* Expanded state for FAQ answers with proper padding */
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        /* Rotates plus icon to create an X when answer is visible */
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
         }
     </style>
 </head>
 <body>
-    <!-- ---------- HEADER SECTION ---------- -->
+    <!-- ============================================ -->
+    <!-- HEADER SECTION -->
+    <!-- ============================================ -->
+    
+    <!-- Main site header with navigation - consistent across all pages -->
     <header>
         <div class="header-container">
-            <!-- Logo with image + text -->
+            <!-- Organization logo and name for brand recognition -->
             <div class="logo">
-                <img src="images/logo.png" alt="Shakti Foundation Logo" class="logo-img">
+                <img src="images/logo.png" alt="Shakti Foundation Logo - Women Empowerment Organization" class="logo-img">
                 <div class="logo-text">
                     <h1 class="logo-main">SHAKTI</h1>
                     <p class="logo-slogan">Empowering Women</p>
                 </div>
             </div>
             
-            <!-- Main Navigation Menu -->
+            <!-- Primary navigation menu with current page highlighted -->
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
@@ -118,39 +219,50 @@
                 </ul>
             </nav>
             
-            <!-- Donate button (call to action) -->
+            <!-- Prominent call-to-action for donations -->
             <a href="donate.html" class="donate-button">Donate Now</a>
         </div>
     </header>
 
+    <!-- ============================================ -->
+    <!-- MAIN PAGE CONTENT -->
+    <!-- ============================================ -->
+    
     <main>
-        <!-- ---------- HERO SECTION ---------- -->
+        <!-- ============================================ -->
+        <!-- HERO BANNER SECTION -->
+        <!-- ============================================ -->
+        
+        <!-- Introductory banner that sets the tone for the About page -->
         <section class="about-hero">
             <div class="container">
-                <h2>About Shakti Foundation</h2>
+                <h1>About Shakti Foundation</h1>
                 <p>Transforming lives through sustainable empowerment since 1992</p>
             </div>
         </section>
 
-        <!-- ---------- OUR STORY SECTION ---------- -->
+        <!-- ============================================ -->
+        <!-- ORGANIZATION HISTORY SECTION -->
+        <!-- ============================================ -->
+        
+        <!-- Detailed story of how our organization began and grew -->
         <section class="our-story">
             <div class="container">
                 <h2>Our Story</h2>
                 <div class="story-content">
                     <div class="story-text">
-                        <!-- Brief history of the foundation -->
                         <p>Shakti Foundation was founded in 1992 in Dhaka, Bangladesh by <strong>Dr. Humaira Islam</strong> and a team of social innovators dedicated to empowering underprivileged women through microfinance.</p>
                         
                         <p>What began as a pilot microfinance program for women living in urban slums rapidly expanded into both urban and rural regions, transforming Shakti into one of the largest NGOs in Bangladesh.</p>
                         
                         <p>Today, Shakti operates across <strong>57 districts</strong> with over <strong>475,199 members</strong>. While microcredit remains central to our mission, we now offer comprehensive programs including healthcare, education, agro-business, renewable energy, skills training, and advocacy.</p>
                         
-                        <!-- Expandable text trigger -->
+                        <!-- Interactive element that reveals founder's detailed biography -->
                         <div class="info-text" onclick="toggleFounderStory()">
                             📖 Read Dr. Humaira Islam's Full Story
                         </div>
                         
-                        <!-- Founder’s full biography (hidden by default) -->
+                        <!-- Expandable section containing founder's complete journey -->
                         <div class="founder-expandable" id="founderStory">
                             <h3>Dr. Humaira Islam's Journey</h3>
                             <p>Dr. Humaira Islam, a visionary social entrepreneur, founded Shakti Foundation in 1992 with a simple yet powerful belief: that every woman deserves the opportunity to become self-reliant and empowered.</p>
@@ -165,14 +277,13 @@
                             
                             <p><strong>Philosophy:</strong> "Empower a woman, and you empower an entire community. When women have access to resources and opportunities, they become catalysts for sustainable change."</p>
                             
-                            <!-- Close button for founder story -->
+                            <!-- Button to collapse the expanded founder story -->
                             <button class="close-btn" onclick="toggleFounderStory()">Close Story</button>
                         </div>
                     </div>
-
-                    <!-- Supporting image + alternative trigger -->
                     <div class="story-image">
-                        <img src="images/founder-story.jpg" alt="Dr. Humaira Islam with community women">
+                        <img src="images/founder-story.jpg" alt="Dr. Humaira Islam with community women at Shakti Foundation event">
+                        <!-- Alternative way to access founder's story -->
                         <div class="info-text" onclick="toggleFounderStory()">
                             ℹ️ Click to Learn More About Dr. Islam
                         </div>
@@ -181,16 +292,20 @@
             </div>
         </section>
 
-        <!-- ---------- MISSION & VISION SECTION ---------- -->
+        <!-- ============================================ -->
+        <!-- MISSION AND VISION SECTION -->
+        <!-- ============================================ -->
+        
+        <!-- Clear statement of our organization's purpose and aspirations -->
         <section class="mission-vision">
             <div class="container">
                 <div class="mv-grid">
-                    <!-- Vision card -->
+                    <!-- Our long-term vision for creating change -->
                     <div class="mv-card">
                         <h3>Our Vision</h3>
                         <p>To empower disadvantaged women to become leaders, entrepreneurs, and agents of change in their communities, creating a world where gender equality is a reality.</p>
                     </div>
-                    <!-- Mission card -->
+                    <!-- Our current mission and operational focus -->
                     <div class="mv-card">
                         <h3>Our Mission</h3>
                         <p>To strengthen the social and economic foundations of poor women in Bangladesh through microfinance, education, healthcare, and skills training, while encouraging donations and partnerships to sustain these efforts.</p>
@@ -199,27 +314,30 @@
             </div>
         </section>
 
-        <!-- ---------- LEADERSHIP TEAM SECTION ---------- -->
+        <!-- ============================================ -->
+        <!-- LEADERSHIP TEAM INTRODUCTION -->
+        <!-- ============================================ -->
+        
+        <!-- Showcase of key team members driving our mission -->
         <section class="leadership-team">
             <div class="container">
                 <h2>Leadership Team</h2>
                 <p class="section-subtitle">Dedicated professionals driving our mission forward</p>
                 
                 <div class="team-grid">
-                    <!-- Each team member has a short profile + expandable biography -->
-                    
-                    <!-- Founder -->
+                    <!-- Founder's profile with expandable details -->
                     <div class="team-member">
-                        <img src="images/dr-humaira-islam.jpg" alt="Dr. Humaira Islam - Founder and Director">
+                        <img src="images/dr-humaira-islam.jpg" alt="Dr. Humaira Islam - Founder and Director of Shakti Foundation">
                         <h4>Dr. Humaira Islam</h4>
                         <p class="position">Founder & Director</p>
                         <p class="bio">Pioneer in microfinance and women's empowerment with 30+ years of experience.</p>
                         
+                        <!-- Interactive element to view professional details -->
                         <div class="info-text" onclick="toggleContent('founderBio')">
                             ℹ️ Learn More About Dr. Islam
                         </div>
                         
-                        <!-- Expandable details -->
+                        <!-- Additional professional information -->
                         <div class="expandable-content" id="founderBio">
                             <p><strong>Education:</strong> PhD in Social Entrepreneurship, Master's in Economics</p>
                             <p><strong>Experience:</strong> 30+ years in microfinance and women's empowerment</p>
@@ -229,9 +347,9 @@
                         </div>
                     </div>
 
-                    <!-- Program Manager -->
+                    <!-- Program Manager profile -->
                     <div class="team-member">
-                        <img src="images/rajesh-kumar.jpg" alt="Rajesh Kumar - Program Manager">
+                        <img src="images/rajesh-kumar.jpg" alt="Rajesh Kumar - Program Manager at Shakti Foundation">
                         <h4>Rajesh Kumar</h4>
                         <p class="position">Program Manager</p>
                         <p class="bio">Oversees all field operations and program implementation across 57 districts.</p>
@@ -249,9 +367,9 @@
                         </div>
                     </div>
 
-                    <!-- Finance Director -->
+                    <!-- Finance Director profile -->
                     <div class="team-member">
-                        <img src="images/meera-patel.jpg" alt="Meera Patel - Finance Director">
+                        <img src="images/meera-patel.jpg" alt="Meera Patel - Finance Director at Shakti Foundation">
                         <h4>Meera Patel</h4>
                         <p class="position">Finance Director</p>
                         <p class="bio">Manages financial operations and donor fund allocation with transparency.</p>
@@ -269,9 +387,9 @@
                         </div>
                     </div>
 
-                    <!-- Operations Head -->
+                    <!-- Operations Head profile -->
                     <div class="team-member">
-                        <img src="images/amit-singh.jpg" alt="Amit Singh - Operations Head">
+                        <img src="images/amit-singh.jpg" alt="Amit Singh - Operations Head at Shakti Foundation">
                         <h4>Amit Singh</h4>
                         <p class="position">Operations Head</p>
                         <p class="bio">Coordinates logistics and ensures efficient program delivery across all districts.</p>
@@ -292,41 +410,157 @@
             </div>
         </section>
 
-        <!-- ---------- JAVASCRIPT SECTION ---------- -->
+        <!-- ============================================ -->
+        <!-- FREQUENTLY ASKED QUESTIONS -->
+        <!-- ============================================ -->
+        
+        <!-- Interactive FAQ section to address common visitor questions -->
+        <section class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <p class="section-subtitle">Get answers to common questions about our foundation</p>
+                
+                <div class="faq-accordion">
+                    <!-- FAQ item explaining microfinance -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What is microfinance and how does it work?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Microfinance provides small loans to people who don't have access to traditional banking. At Shakti Foundation, we give small business loans (usually $50-$500) to women entrepreneurs. They use this money to start or grow their businesses, and pay back the loan in small weekly or monthly payments.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ item about donation process -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How can I donate to Shakti Foundation?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can donate through our website using credit/debit cards, bank transfer, or UPI. We have one-time donation options or you can set up monthly recurring donations. Every donation goes directly to our programs helping women in Bangladesh.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ item about service areas -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What areas in Bangladesh do you serve?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We currently work in 57 districts across Bangladesh, including urban areas like Dhaka and Chittagong, and rural communities in regions like Rajshahi, Khulna, and Sylhet. Our programs reach both cities and remote villages.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ item about volunteering opportunities -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I volunteer with Shakti Foundation?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! We welcome volunteers in various capacities. You can help with field work, office administration, fundraising events, or remote work like social media management. Visit our Enquiry page to learn about current volunteer opportunities.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ item about impact measurement -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do you measure the impact of your programs?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We track multiple metrics including: number of loans given, business success rates, health clinic visits, student graduation rates, and employment after training. We also conduct regular surveys to measure changes in family income, education levels, and overall quality of life.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- INTERACTIVE FUNCTIONALITY -->
+        <!-- ============================================ -->
+        
         <script>
-            // General toggle function for team bios
+            // ============================================
+            // CONTENT EXPANSION FUNCTIONS
+            // ============================================
+            
+            // Toggles the visibility of expandable content sections
             function toggleContent(contentId) {
                 const content = document.getElementById(contentId);
                 content.classList.toggle('show');
             }
             
-            // Toggle for founder’s story with smooth scroll
+            // Special handling for founder story with smooth scrolling
             function toggleFounderStory() {
                 const story = document.getElementById('founderStory');
                 story.classList.toggle('show');
                 
-                // Scroll into view when opening
+                // Smoothly scroll to the story when opening for better user experience
                 if (story.classList.contains('show')) {
                     story.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }
             
-            // Close any open expandable section when clicking outside
+            // Close expanded sections when clicking outside of them
             document.addEventListener('click', function(event) {
-                if (
-                    !event.target.closest('.info-text') && 
-                    !event.target.closest('.expandable-content') && 
-                    !event.target.closest('.founder-expandable')
-                ) {
+                if (!event.target.closest('.info-text') && !event.target.closest('.expandable-content') && !event.target.closest('.founder-expandable')) {
                     document.querySelectorAll('.expandable-content, .founder-expandable').forEach(item => {
                         item.classList.remove('show');
                     });
                 }
             });
+
+            // ============================================
+            // FAQ ACCORDION FUNCTIONALITY
+            // ============================================
+            
+            // Sets up click handlers for FAQ questions
+            function setupFAQAccordion() {
+                // Select all FAQ question elements
+                const faqQuestions = document.querySelectorAll('.faq-question');
+                
+                // Add click event to each question
+                faqQuestions.forEach(question => {
+                    question.addEventListener('click', function() {
+                        // Get the parent FAQ item container
+                        const faqItem = this.parentElement;
+                        
+                        // Toggle the active state to show/hide answer
+                        faqItem.classList.toggle('active');
+                        
+                        // Close other FAQ items when opening a new one
+                        faqQuestions.forEach(otherQuestion => {
+                            if (otherQuestion !== this) {
+                                otherQuestion.parentElement.classList.remove('active');
+                            }
+                        });
+                    });
+                });
+            }
+
+            // ============================================
+            // PAGE INITIALIZATION
+            // ============================================
+            
+            // Initialize all interactive elements when page loads
+            document.addEventListener('DOMContentLoaded', function() {
+                // Set up FAQ accordion if it exists on this page
+                if (document.querySelector('.faq-accordion')) {
+                    setupFAQAccordion();
+                }
+            });
         </script>
     </main>
 
-    <!-- ---------- FOOTER SECTION ---------- -->
+    <!-- ============================================ -->
+    <!-- SITE FOOTER -->
+    <!-- ============================================ -->
+    
+    <!-- Consistent footer with contact information and copyright -->
     <footer>
         <div class="container">
             <div class="footer-content">
