@@ -8,10 +8,16 @@ The Shakti Foundation website consists of six main pages designed to promote wom
 
 ## Website Structure
 -Homepage (index.html): Landing page featuring hero section, success stories, impact statistics, and calls-to-action with expandable content sections and team biographies.
+
 -About Us (about.html): Organization history (founded 1992 by Dr. Humaira Islam), vision, mission, and leadership team with expandable biography sections and interactive FAQ accordion.
--Programs (programs.html): Detailed empowerment initiatives including Microfinance, Healthcare, Education, and Training with search functionality, filter system, and lightbox image gallery.
+
+-Programs (programs.html): Detailed empowerment initiatives including Microfinance, Healthcare, Education, and Training with search functionality, filter system, and lightbox image 
+gallery.
+
 -Donate (donate.html): Secure donation processing with multiple payment options, customizable amounts, impact visualization, and donor testimonials.
+
 -Contact Us (contact.html): Complete contact information with interactive map, contact form, department contacts, and integrated donation section.
+
 -Enquiry (enquiry.html): Specialized forms for volunteer applications and partnership opportunities with enquiry type selection and quick options.
 
 ## Features & Technical Implementation
