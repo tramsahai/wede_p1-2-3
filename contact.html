@@ -1,85 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Basic page setup with character encoding and mobile-friendly design -->
+    <!-- Ensures text displays correctly with special characters and symbols -->
     <meta charset="UTF-8">
+    <!-- Makes the website adapt to different screen sizes like phones and tablets -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Shakti Foundation</title>
-    <!-- External CSS file for styling -->
+    
+    <!-- Clear page title that tells visitors and search engines what this page is about -->
+    <title>Contact Us - Shakti Foundation | Get Involved & Support</title>
+    <!-- Brief description that appears in search results to attract relevant visitors -->
+    <meta name="description" content="Contact Shakti Foundation for partnerships, donations, or volunteer opportunities. Reach us at info@shaktifoundation.org or call +91 98765 43210 for women empowerment initiatives.">
+    <!-- Keywords to help people find our contact page through search engines -->
+    <meta name="keywords" content="contact Shakti Foundation, donate to women empowerment, volunteer opportunities, partnership inquiries, NGO Bangladesh, get involved, support women">
+    <!-- Identifies our organization as the content creator -->
+    <meta name="author" content="Shakti Foundation">
+    <!-- Instructions for search engines to index this page and follow links -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Links to our main design file for consistent look and feel -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- ================= HEADER SECTION ================= -->
-    <!-- Appears on top of every page for branding and navigation -->
+    <!-- Top navigation area with logo, menu, and donation button -->
     <header>
         <div class="header-container">
             
-            <!-- Logo Area: includes image and foundation name -->
+            <!-- Organization logo and name for brand recognition -->
             <div class="logo">
-                <img src="images/logo.png" alt="Shakti Foundation Logo" class="logo-img">
+                <img src="images/logo.png" alt="Shakti Foundation Logo - Women Empowerment Organization in Bangladesh" class="logo-img">
                 <div class="logo-text">
                     <h1 class="logo-main">SHAKTI</h1>
                     <p class="logo-slogan">Empowering Women</p>
                 </div>
             </div>
             
-            <!-- Navigation Menu: helps users move between pages -->
+            <!-- Main navigation menu to help visitors explore our website -->
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="programs.html">Programs</a></li>
-                    <!-- Highlighted link to show the user is on this page -->
+                    <!-- Current page is highlighted to show visitors where they are -->
                     <li><a href="contact.html" class="active">Contact</a></li>
                     <li><a href="enquiry.html">Enquiry</a></li>
                 </ul>
             </nav>
             
-            <!-- Donate Button: always visible to encourage donations -->
+            <!-- Prominent donation button to encourage support for our cause -->
             <a href="donate.html" class="donate-button">Donate Now</a>
         </div>
     </header>
 
     <main>
         <!-- ================= CONTACT SECTION ================= -->
-        <!-- Allows visitors to send a message or find contact info -->
+        <!-- Main contact area where visitors can reach out to us -->
         <section class="contact-section">
             <div class="container">
-                <!-- Section Title -->
-                <h2>Contact Us</h2>
+                <!-- Clear heading that tells visitors what this section is for -->
+                <h1>Contact Us</h1>
                 <p class="section-subtitle">Get in touch to learn more about our work or get involved</p>
                 
                 <div class="contact-content">
-                    <!-- Contact Form: visitors can send us their details -->
+                    <!-- Contact form for visitors to send us messages directly -->
                     <div class="contact-form">
                         <form action="#" method="POST">
                             
-                            <!-- Name and Email fields shown side by side -->
+                            <!-- Name and email fields arranged side by side to save space -->
                             <div class="form-row">
-                                <input type="text" name="name" placeholder="Your Name" required>
-                                <input type="email" name="email" placeholder="Your Email" required>
+                                <input type="text" name="name" placeholder="Your Full Name" required>
+                                <input type="email" name="email" placeholder="Your Email Address" required>
                             </div>
                             
-                            <!-- Subject field to understand message category -->
-                            <input type="text" name="subject" placeholder="Subject" required>
+                            <!-- Subject field to help us categorize and prioritize messages -->
+                            <input type="text" name="subject" placeholder="Message Subject" required>
                             
-                            <!-- Text area for visitor’s detailed message -->
-                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <!-- Large text area for detailed messages and questions -->
+                            <textarea name="message" placeholder="Your Message - Tell us how we can help you" rows="5" required></textarea>
                             
-                            <!-- Submit button sends the form -->
+                            <!-- Submit button to send the completed form -->
                             <button type="submit" class="btn-primary">Send Message</button>
                         </form>
                     </div>
                     
-                    <!-- Contact Info Section: alternative ways to reach us -->
+                    <!-- Alternative contact information for those who prefer direct contact -->
                     <div class="contact-info">
-                        <h3>Contact Information</h3>
+                        <h2>Contact Information</h2>
                         <p>📧 info@shaktifoundation.org</p>
                         <p>📞 +91 98765 43210</p>
                         <p>📱 +91 98765 43210</p>
                         
                         <h3>Our Location</h3>
-                        <!-- Embedded Google Map showing our office location -->
+                        <!-- Interactive map showing our office location in Dhaka -->
                         <div class="map-container">
                             <iframe 
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116834.00977741619!2d90.349285767855!3d23.780887714264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1690832612345!5m2!1sen!2sus" 
@@ -88,7 +100,8 @@
                                 style="border:0;" 
                                 allowfullscreen="" 
                                 loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade">
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Shakti Foundation Location in Dhaka, Bangladesh">
                             </iframe>
                             <p>📍 123 Empowerment Street, Dhaka, Bangladesh</p>
                         </div>
@@ -98,7 +111,7 @@
         </section>
 
         <!-- ================= DONATION SECTION ================= -->
-        <!-- Allows visitors to support the foundation financially -->
+        <!-- Integrated donation form for visitors who want to support immediately -->
         <section class="donation-section">
             <div class="container">
                 <h2>Make a Donation</h2>
@@ -107,7 +120,7 @@
                 <div class="donation-form">
                     <form action="#" method="POST">
                         
-                        <!-- Predefined donation amounts with buttons -->
+                        <!-- Pre-set donation amounts for quick selection -->
                         <div class="form-group">
                             <label>Donation Amount</label>
                             <div class="amount-buttons">
@@ -115,11 +128,11 @@
                                 <button type="button" class="amount-btn">¥1,000</button>
                                 <button type="button" class="amount-btn">¥2,500</button>
                             </div>
-                            <!-- Custom donation amount field -->
-                            <input type="number" name="custom-amount" placeholder="Custom Amount">
+                            <!-- Custom amount field for those who want to donate a specific amount -->
+                            <input type="number" name="custom-amount" placeholder="Enter Custom Amount">
                         </div>
                         
-                        <!-- Frequency of donation (one-time, monthly, etc.) -->
+                        <!-- Options for how often the donation should be made -->
                         <div class="form-group">
                             <label>Donation Frequency</label>
                             <div class="frequency-buttons">
@@ -130,7 +143,7 @@
                             </div>
                         </div>
                         
-                        <!-- Donor basic details -->
+                        <!-- Basic information about the donor -->
                         <div class="form-group">
                             <label>Your Information</label>
                             <div class="form-row">
@@ -139,7 +152,7 @@
                             </div>
                         </div>
                         
-                        <!-- Payment methods available -->
+                        <!-- Different payment methods we accept -->
                         <div class="form-group">
                             <label>Payment Method</label>
                             <div class="payment-methods">
@@ -158,19 +171,19 @@
                             </div>
                         </div>
                         
-                        <!-- Card details (only shown if "Card" option is selected) -->
+                        <!-- Card details section that only appears when card payment is selected -->
                         <div class="card-details" id="cardDetails">
                             <div class="form-row">
                                 <input type="text" name="card-number" placeholder="Card Number">
-                                <input type="text" name="cvv" placeholder="CVV">
+                                <input type="text" name="cvv" placeholder="CVV Security Code">
                             </div>
                             <div class="form-row">
-                                <input type="text" name="expiry-date" placeholder="MM/YY">
+                                <input type="text" name="expiry-date" placeholder="MM/YY Expiry Date">
                                 <input type="text" name="card-name" placeholder="Name on Card">
                             </div>
                         </div>
                         
-                        <!-- Final button to confirm donation -->
+                        <!-- Final button to complete the donation process -->
                         <button type="submit" class="btn-primary confirm-donation-btn">Confirm Donation</button>
                     </form>
                 </div>
@@ -178,7 +191,7 @@
         </section>
 
         <!-- ================= QUICK CONTACT INFO ================= -->
-        <!-- Provides direct contact details for visitors -->
+        <!-- Additional contact details for visitors who prefer direct communication -->
         <section class="quick-contact">
             <div class="container">
                 <h2>Prefer to Reach Us Directly?</h2>
@@ -187,61 +200,108 @@
                     <p><strong>📞 Partnerships:</strong> +91 98765 43210 (Partnerships Department)</p>
                     <p><strong>🕘 Office Hours:</strong> Monday-Friday, 9:00 AM - 5:00 PM</p>
                     <p><strong>📍 Visit Us:</strong> 123 Empowerment Street, Dhaka, Bangladesh</p>
+                    <p><strong>🌐 Website:</strong> www.shaktifoundation.org</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DEPARTMENT CONTACTS ================= -->
+        <!-- Specific contact information for different types of inquiries -->
+        <section class="department-contacts">
+            <div class="container">
+                <h2>Department Contacts</h2>
+                <div class="department-grid">
+                    <!-- Partnerships department for corporate collaborations -->
+                    <div class="department-card">
+                        <h3>💼 Partnerships</h3>
+                        <p>For corporate partnerships and collaborations</p>
+                        <p><strong>Email:</strong> partnerships@shaktifoundation.org</p>
+                        <p><strong>Phone:</strong> +91 98765 43211</p>
+                    </div>
+                    <!-- Volunteering department for those who want to contribute time -->
+                    <div class="department-card">
+                        <h3>🎓 Volunteering</h3>
+                        <p>For volunteer opportunities and internships</p>
+                        <p><strong>Email:</strong> volunteer@shaktifoundation.org</p>
+                        <p><strong>Phone:</strong> +91 98765 43212</p>
+                    </div>
+                    <!-- Programs department for specific project inquiries -->
+                    <div class="department-card">
+                        <h3>📊 Programs</h3>
+                        <p>For program-specific questions and information</p>
+                        <p><strong>Email:</strong> programs@shaktifoundation.org</p>
+                        <p><strong>Phone:</strong> +91 98765 43213</p>
+                    </div>
+                    <!-- Donations department for contribution-related questions -->
+                    <div class="department-card">
+                        <h3>💰 Donations</h3>
+                        <p>For donation-related questions and support</p>
+                        <p><strong>Email:</strong> donations@shaktifoundation.org</p>
+                        <p><strong>Phone:</strong> +91 98765 43214</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- ================= FOOTER SECTION ================= -->
-    <!-- Shown on every page with legal + contact details -->
+    <!-- Consistent footer that appears on every page of our website -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <!-- Legal info -->
+                <!-- Copyright information for legal protection -->
                 <p>&copy; 2025 Shakti Foundation. All rights reserved.</p>
                 
-                <!-- Quick contact info -->
+                <!-- Quick contact information for easy reference -->
                 <p>📧 info@shaktifoundation.org | 📞 +91 98765 43210 | 📱 +91 98765 43210</p>
                 
-                <!-- Office address -->
+                <!-- Physical office address -->
                 <p>📍 123 Empowerment Street, Dhaka, Bangladesh</p>
+                
+                <!-- Social media links to connect with us on different platforms -->
+                <p>🔗 Follow us: 
+                    <a href="#" style="color: #FFD700;">Facebook</a> | 
+                    <a href="#" style="color: #FFD700;">Twitter</a> | 
+                    <a href="#" style="color: #FFD700;">LinkedIn</a>
+                </p>
             </div>
         </div>
     </footer>
 
     <!-- ================= JAVASCRIPT ================= -->
-    <!-- Adds interactivity to buttons and payment options -->
+    <!-- Interactive functionality to enhance user experience -->
     <script>
-        // Handle donation amount selection
+        // Handles donation amount selection when buttons are clicked
         document.querySelectorAll('.amount-btn').forEach(button => {
             button.addEventListener('click', function() {
-                // Remove highlight from all amount buttons
+                // Remove active state from all amount buttons
                 document.querySelectorAll('.amount-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
-                // Highlight the button that was clicked
+                // Add active state to the clicked button
                 this.classList.add('active');
-                // Auto-fill the custom amount input with selected value
+                // Automatically fill the custom amount field with selected value
                 document.querySelector('input[name="custom-amount"]').value = this.textContent.replace('¥', '');
             });
         });
 
-        // Handle donation frequency selection
+        // Handles donation frequency selection
         document.querySelectorAll('.frequency-btn').forEach(button => {
             button.addEventListener('click', function() {
-                // Remove highlight from all frequency buttons
+                // Remove active state from all frequency buttons
                 document.querySelectorAll('.frequency-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
-                // Highlight the clicked button
+                // Add active state to the clicked button
                 this.classList.add('active');
             });
         });
 
-        // Show card details only if "Card" is selected
+        // Shows or hides card details based on selected payment method
         document.querySelectorAll('input[name="payment-method"]').forEach(radio => {
             radio.addEventListener('change', function() {
                 const cardDetails = document.getElementById('cardDetails');
+                // Only show card details if credit/debit card is selected
                 if (this.value === 'card') {
                     cardDetails.style.display = 'block';
                 } else {
@@ -249,6 +309,117 @@
                 }
             });
         });
+
+        // Validates the contact form before submission
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            const name = document.querySelector('input[name="name"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const subject = document.querySelector('input[name="subject"]').value;
+            const message = document.querySelector('textarea[name="message"]').value;
+            
+            // Check that all required fields are filled out
+            if (!name || !email || !subject || !message) {
+                e.preventDefault();
+                alert('Please fill in all required fields before submitting.');
+                return;
+            }
+            
+            // Validate email format using regular expression
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                e.preventDefault();
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Success confirmation message for the user
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+        });
+
+        // Sets up default selections when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set the first donation amount as active by default
+            document.querySelector('.amount-btn').classList.add('active');
+            document.querySelector('input[name="custom-amount"]').value = '500';
+            
+            // Set one-time donation as the default frequency
+            document.querySelector('.frequency-btn').classList.add('active');
+        });
     </script>
+
+    <!-- Additional styling for the new contact page sections -->
+    <style>
+        /* Styling for the department contacts grid layout */
+        .department-contacts {
+            padding: 3rem 0;
+            background: #1a1a1a;
+        }
+        
+        .department-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        /* Individual department contact cards */
+        .department-card {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #FFD700;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Subtle hover effect to make cards feel interactive */
+        .department-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .department-card h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+        
+        .department-card p {
+            margin-bottom: 0.5rem;
+            color: #CCCCCC;
+        }
+        
+        /* Styling for the quick contact information section */
+        .quick-contact {
+            padding: 3rem 0;
+            background: #000000;
+            border-top: 2px solid #FFD700;
+            border-bottom: 2px solid #FFD700;
+        }
+        
+        .contact-details {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .contact-details p {
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        /* Responsive design adjustments for mobile devices */
+        @media (max-width: 768px) {
+            .department-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .contact-form, .contact-info {
+                width: 100%;
+            }
+        }
+    </style>
 </body>
 </html>
