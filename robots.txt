@@ -1,0 +1,69 @@
+# ============================================
+# Shakti Foundation - Robots.txt File
+# ============================================
+# This file guides search engine bots on which pages to crawl
+# Last Updated: January 2025
+# ============================================
+
+# ========================
+# WHO CAN ACCESS SITE
+# ========================
+
+# All search engines are welcome to crawl our site
+User-agent: *
+
+# ========================
+# ACCESS PERMISSIONS
+# ========================
+
+# Allow bots to access ALL pages on our website
+Allow: /
+
+# ========================
+# RESTRICTED AREAS
+# ========================
+# These are sections we don't want in search results
+
+# Don't index admin areas (if we had them)
+Disallow: /admin/
+
+# Don't index temporary or cache files
+Disallow: /tmp/
+Disallow: /cache/
+
+# Don't index system folders
+Disallow: /cgi-bin/
+Disallow: /includes/
+
+# Don't index any private member areas
+Disallow: /private/
+Disallow: /members/
+
+# ========================
+# SITEMAP LOCATION
+# ========================
+# This helps search engines find all our important pages
+
+# Location of our website map for search engines
+Sitemap: https://www.shaktifoundation.org/sitemap.xml
+
+# ========================
+# CRAWLING SETTINGS
+# ========================
+
+# Ask bots to wait 1 second between requests
+# This prevents overloading our server
+Crawl-delay: 1
+
+# ========================
+# SPECIFIC SEARCH ENGINE RULES
+# ========================
+
+# Special instructions for Google's image bot
+User-agent: Googlebot-Image
+Allow: /images/
+# Allow Google to index our images for image search
+
+# ============================================
+# END OF ROBOTS.TXT FILE
+# ============================================
