@@ -1,172 +1,776 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Ensures text displays correctly with special characters and symbols -->
     <meta charset="UTF-8">
+    <!-- Makes the website adapt to different screen sizes like phones and tablets -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate - Support Shakti Foundation</title>
-    <!-- Link to external stylesheet -->
+    
+    <!-- Clear page title that tells visitors this is where they can ask questions and inquire about partnerships -->
+    <title>Enquiry - Shakti Foundation | Questions & Partnership Opportunities</title>
+    <!-- Brief description that appears in search results explaining what types of enquiries we handle -->
+    <meta name="description" content="Have questions about Shakti Foundation? Submit your enquiry about our programs, partnerships, volunteering, or how to support our women empowerment initiatives in Bangladesh.">
+    <!-- Keywords to help people find our enquiry page through search engines -->
+    <meta name="keywords" content="Shakti Foundation enquiry, program questions, partnership opportunities, volunteer inquiry, support women empowerment, contact NGO, collaboration opportunities">
+    <!-- Identifies our organization as the content creator -->
+    <meta name="author" content="Shakti Foundation">
+    <!-- Instructions for search engines to index this page and follow links -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Links to our main design file for consistent branding -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Additional styling specifically for the enquiry page to make it user-friendly -->
+    <style>
+        /* Main enquiry form section styling */
+        .enquiry-main {
+            padding: 4rem 0;
+            background: #000000;
+        }
+        
+        /* Container for the enquiry form with prominent borders */
+        .enquiry-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            padding: 3rem;
+            border-radius: 15px;
+            border: 2px solid #FFD700;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        /* Grid layout for different enquiry type options */
+        .enquiry-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        /* Buttons for selecting enquiry type */
+        .enquiry-type-btn {
+            background: #2a2a2a;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            padding: 1.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        /* Highlighted state for selected enquiry type */
+        .enquiry-type-btn.active,
+        .enquiry-type-btn:hover {
+            background: #FFD700;
+            color: #000000;
+            transform: scale(1.05);
+        }
+        
+        /* Spacing and styling for form sections */
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        /* Label styling for form fields */
+        .form-group label {
+            display: block;
+            color: #FFD700;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* Consistent styling for all form input elements */
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #B22222;
+            border-radius: 8px;
+            background: #000000;
+            color: #FFFFFF;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        /* Focus states for form elements to improve usability */
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Textarea specific styling */
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Prominent submit button */
+        .submit-btn {
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            background: linear-gradient(45deg, #B22222, #FF6B6B);
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Hover effect for submit button */
+        .submit-btn:hover {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000000;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Quick options section for alternative ways to get information */
+        .quick-options {
+            padding: 3rem 0;
+            background: #1a1a1a;
+            text-align: center;
+        }
+        
+        /* Grid layout for quick option cards */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Individual option cards that users can click */
+        .option-card {
+            background: #2a2a2a;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        /* Hover effect for option cards */
+        .option-card:hover {
+            transform: translateY(-5px);
+            border-color: #FFD700;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        }
+        
+        /* Heading styling within option cards */
+        .option-card h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+        
+        /* Description text in option cards */
+        .option-card p {
+            color: #CCCCCC;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        
+        /* Link styling within option cards */
+        .option-link {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hover effect for option links */
+        .option-link:hover {
+            color: #FFFFFF;
+            transform: translateX(5px);
+        }
+        
+        /* FAQ section styling for common questions */
+        .faq-preview {
+            padding: 4rem 0;
+            background: #000000;
+        }
+        
+        /* Container for FAQ items */
+        .faq-items {
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        
+        /* Individual FAQ item styling */
+        .faq-item {
+            background: #1a1a1a;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        
+        /* Clickable FAQ question area */
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Hover effect for FAQ questions */
+        .faq-question:hover {
+            background: #2a2a2a;
+        }
+        
+        /* FAQ question text styling */
+        .faq-question h4 {
+            margin: 0;
+            color: #FFD700;
+            font-size: 1.1rem;
+        }
+        
+        /* Plus/minus icon for FAQ items */
+        .faq-icon {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Hidden FAQ answer area */
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: #222;
+        }
+        
+        /* Expanded state for FAQ answers */
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        /* Response time information box */
+        .response-info {
+            text-align: center;
+            padding: 1.5rem;
+            background: #1a1a1a;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #FFD700;
+        }
+        
+        /* Adjust layout for smaller screens like mobile phones */
+        @media (max-width: 768px) {
+            .enquiry-form-container {
+                padding: 2rem 1.5rem;
+                margin: 0 1rem;
+            }
+            
+            .enquiry-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-question h4 {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- HEADER: Top section with logo, navigation, and donate button -->
+    <!-- ================= HEADER SECTION ================= -->
+    <!-- Top navigation area with logo, menu, and donation button -->
     <header>
         <div class="header-container">
-            <!-- Logo / Organization name -->
+            <!-- Organization logo and name for brand recognition -->
             <div class="logo">
                 <h1>Shakti Foundation</h1>
             </div>
             
-            <!-- Navigation menu -->
+            <!-- Main navigation menu to help visitors explore our website -->
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="programs.html">Programs</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <!-- Current page is highlighted to show visitors where they are -->
+                    <li><a href="enquiry.html" class="active">Enquiry</a></li>
                 </ul>
             </nav>
             
-            <!-- Highlighted donate button (active because we're on this page) -->
-            <a href="donate.html" class="donate-button active">Donate Now</a>
+            <!-- Donation button to encourage support for our cause -->
+            <a href="donate.html" class="donate-button">Donate Now</a>
         </div>
     </header>
 
     <main>
-        <!-- HERO SECTION: Banner encouraging donations -->
-        <section class="donate-hero">
+        <!-- ================= HERO SECTION ================= -->
+        <!-- Introductory banner that explains the purpose of this page -->
+        <section class="enquiry-hero">
             <div class="container">
-                <h2>Support Women's Empowerment</h2>
-                <!-- Short explanation of how donations are used -->
-                <p>Your donation directly funds microfinance, healthcare, education, and skills training programs that transform lives and communities.</p>
+                <h1>We're Here to Help</h1>
+                <!-- Clear explanation of what visitors can do on this page -->
+                <p>Have questions about our programs, partnerships, or how you can get involved? Send us your enquiry and we'll get back to you promptly.</p>
+                
+                <!-- Response time information to set expectations -->
+                <div class="response-info">
+                    <p>📧 <strong>Average Response Time:</strong> 24 hours | 📞 <strong>Urgent Inquiries:</strong> +91 98765 43210</p>
+                </div>
             </div>
         </section>
 
-        <!-- DONATION FORM SECTION -->
-        <section class="donation-main">
+        <!-- ================= QUICK OPTIONS SECTION ================= -->
+        <!-- Alternative ways for visitors to find information quickly without filling out the form -->
+        <section class="quick-options">
             <div class="container">
-                <h2>Make a Donation!</h2>
-                <p class="section-subtitle">Your contribution helps us continue our mission of empowering communities</p>
+                <h2>Quick Ways to Get Information</h2>
+                <p class="section-subtitle">Find answers faster with these direct options</p>
                 
-                <!-- Donation form starts here -->
-                <div class="donation-form">
-                    <form action="#" method="POST">
+                <div class="options-grid">
+                    <!-- Option to learn about our programs -->
+                    <div class="option-card" onclick="location.href='programs.html'">
+                        <h3>📊 Our Programs</h3>
+                        <p>Learn about our microfinance, healthcare, education, and skills training initiatives across Bangladesh.</p>
+                        <span class="option-link">Explore Programs →</span>
+                    </div>
+                    
+                    <!-- Option to learn about volunteering opportunities -->
+                    <div class="option-card" onclick="location.href='volunteer.html'">
+                        <h3>🤝 Volunteer</h3>
+                        <p>Discover volunteer opportunities and how you can contribute your skills to our mission.</p>
+                        <span class="option-link">Volunteer Info →</span>
+                    </div>
+                    
+                    <!-- Option to inquire about partnerships (pre-fills the form) -->
+                    <div class="option-card" onclick="setEnquiryType('partnership')">
+                        <h3>💼 Partnerships</h3>
+                        <p>Explore corporate partnerships, collaborations, and sponsorship opportunities.</p>
+                        <span class="option-link">Partner With Us →</span>
+                    </div>
+                    
+                    <!-- Option to get donation information -->
+                    <div class="option-card" onclick="location.href='donate.html'">
+                        <h3>💰 Donations</h3>
+                        <p>Get information about donation processes, tax benefits, and how funds are utilized.</p>
+                        <span class="option-link">Donation Info →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= MAIN ENQUIRY FORM ================= -->
+        <!-- Comprehensive form for visitors to submit their specific questions -->
+        <section class="enquiry-main">
+            <div class="container">
+                <h2>Send Us Your Enquiry</h2>
+                <p class="section-subtitle">Fill out the form below and we'll respond as soon as possible</p>
+                
+                <div class="enquiry-form-container">
+                    <form action="#" method="POST" id="enquiryForm">
                         
-                        <!-- Choose donation amount -->
+                        <!-- Step 1: Visitors select what type of enquiry they have -->
                         <div class="form-group">
-                            <label>Donation Amount</label>
-                            <!-- Pre-set quick amount buttons -->
-                            <div class="amount-buttons">
-                                <button type="button" class="amount-btn">¥500</button>
-                                <button type="button" class="amount-btn">¥1,000</button>
-                                <button type="button" class="amount-btn">¥2,500</button>
+                            <label>Type of Enquiry</label>
+                            <div class="enquiry-types">
+                                <button type="button" class="enquiry-type-btn" data-type="general">General Information</button>
+                                <button type="button" class="enquiry-type-btn" data-type="partnership">Partnership</button>
+                                <button type="button" class="enquiry-type-btn" data-type="volunteer">Volunteering</button>
+                                <button type="button" class="enquiry-type-btn" data-type="donation">Donation Related</button>
                             </div>
-                            <!-- Custom donation input -->
-                            <input type="number" name="custom-amount" placeholder="Custom Amount">
+                            <!-- Hidden field to store the selected enquiry type -->
+                            <input type="hidden" name="enquiry-type" id="enquiryType" value="general" required>
                         </div>
                         
-                        <!-- Choose donation frequency -->
-                        <div class="form-group">
-                            <label>Donation Frequency</label>
-                            <div class="frequency-buttons">
-                                <button type="button" class="frequency-btn">One-time</button>
-                                <button type="button" class="frequency-btn">Monthly</button>
-                                <button type="button" class="frequency-btn">Quarterly</button>
-                                <button type="button" class="frequency-btn">Annually</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Donor personal information -->
+                        <!-- Step 2: Visitor's personal and contact information -->
                         <div class="form-group">
                             <label>Your Information</label>
-                            <!-- Name and email side by side -->
+                            <!-- Name and email (required fields) -->
                             <div class="form-row">
                                 <input type="text" name="full-name" placeholder="Full Name" required>
-                                <input type="email" name="donor-email" placeholder="Email Address" required>
+                                <input type="email" name="email" placeholder="Email Address" required>
+                            </div>
+                            <!-- Phone and organization (optional fields) -->
+                            <div class="form-row" style="margin-top: 1rem;">
+                                <input type="tel" name="phone" placeholder="Phone Number">
+                                <input type="text" name="organization" placeholder="Organization (if applicable)">
                             </div>
                         </div>
                         
-                        <!-- Payment method selection -->
+                        <!-- Step 3: Visitor's location information -->
                         <div class="form-group">
-                            <label>Payment Method</label>
-                            <div class="payment-methods">
-                                <!-- Credit/Debit card option (default) -->
-                                <label class="payment-option">
-                                    <input type="radio" name="payment-method" value="card" checked>
-                                    Credit/Debit Card
-                                </label>
-                                <!-- Bank transfer option -->
-                                <label class="payment-option">
-                                    <input type="radio" name="payment-method" value="bank">
-                                    Bank Transfer
-                                </label>
-                                <!-- UPI option -->
-                                <label class="payment-option">
-                                    <input type="radio" name="payment-method" value="upi">
-                                    UPI
-                                </label>
+                            <label>Location</label>
+                            <div class="form-row">
+                                <input type="text" name="city" placeholder="City">
+                                <input type="text" name="country" placeholder="Country">
                             </div>
                         </div>
                         
-                        <!-- Card details (shown only if Credit/Debit Card is selected) -->
-                        <div class="card-details" id="cardDetails">
-                            <!-- Card number and CVV -->
-                            <div class="form-row">
-                                <input type="text" name="card-number" placeholder="Card Number">
-                                <input type="text" name="cvv" placeholder="CVV">
-                            </div>
-                            <!-- Expiry date and name on card -->
-                            <div class="form-row">
-                                <input type="text" name="expiry-date" placeholder="MM/YY">
-                                <input type="text" name="card-name" placeholder="Name on Card">
-                            </div>
+                        <!-- Step 4: Details about the enquiry -->
+                        <div class="form-group">
+                            <label>Enquiry Details</label>
+                            <!-- Subject line for the enquiry -->
+                            <input type="text" name="subject" placeholder="Subject of Your Enquiry" required>
+                            <!-- Detailed message area -->
+                            <textarea name="message" placeholder="Please provide detailed information about your enquiry, including any specific questions you have..." required></textarea>
                         </div>
                         
-                        <!-- Final submit button -->
-                        <button type="submit" class="btn-primary confirm-donation-btn">Confirm Donation</button>
+                        <!-- Step 5: How the visitor prefers to be contacted -->
+                        <div class="form-group">
+                            <label>Preferred Contact Method</label>
+                            <select name="contact-method" required>
+                                <option value="">Select preferred method</option>
+                                <option value="email">Email</option>
+                                <option value="phone">Phone Call</option>
+                                <option value="whatsapp">WhatsApp</option>
+                                <option value="any">Any Method</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Step 6: How the visitor heard about us (helps with marketing) -->
+                        <div class="form-group">
+                            <label>How did you hear about Shakti Foundation?</label>
+                            <select name="referral-source">
+                                <option value="">Select an option</option>
+                                <option value="search-engine">Search Engine (Google, etc.)</option>
+                                <option value="social-media">Social Media</option>
+                                <option value="friend">Friend or Colleague</option>
+                                <option value="news">News Article</option>
+                                <option value="event">Event or Conference</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Final button to submit the enquiry -->
+                        <button type="submit" class="submit-btn">
+                            Submit Your Enquiry
+                        </button>
+                        
+                        <!-- Privacy assurance to build trust with visitors -->
+                        <div style="text-align: center; margin-top: 1.5rem; color: #FFD700; font-size: 0.9rem;">
+                            <p>🔒 Your information is secure and will only be used to respond to your enquiry</p>
+                        </div>
                     </form>
                 </div>
             </div>
         </section>
 
-        <!-- IMPACT SECTION: Shows how donations are used -->
-        <section class="impact-section">
+        <!-- ================= FAQ PREVIEW SECTION ================= -->
+        <!-- Common questions and answers to help visitors find immediate answers -->
+        <section class="faq-preview">
             <div class="container">
-                <h2>Your Donation Makes Impact</h2>
-                <!-- Specific examples of donation outcomes -->
-                <div class="impact-stats">
-                    <!-- Example for ¥500 -->
-                    <div class="impact-item">
-                        <h3>¥500</h3>
-                        <p>Provides a woman with microfinance training materials</p>
+                <h2>Frequently Asked Questions</h2>
+                <p class="section-subtitle">Quick answers to common questions</p>
+                
+                <div class="faq-items">
+                    <!-- FAQ Item 1: Response time -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How quickly can I expect a response to my enquiry?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We typically respond to all enquiries within 24 hours during business days. For urgent matters, please call our helpline at +91 98765 43210.</p>
+                        </div>
                     </div>
-                    <!-- Example for ¥1,000 -->
-                    <div class="impact-item">
-                        <h3>¥1,000</h3>
-                        <p>Funds healthcare supplies for a remote village clinic</p>
+                    
+                    <!-- FAQ Item 2: Partnership opportunities -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What types of partnerships do you offer?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer various partnership opportunities including corporate sponsorships, program collaborations, employee volunteering, and cause-related marketing. Our partnership team will work with you to create a customized approach that aligns with your organization's goals.</p>
+                        </div>
                     </div>
-                    <!-- Example for ¥2,500 -->
-                    <div class="impact-item">
-                        <h3>¥2,500</h3>
-                        <p>Sponsors a child's education for one full year</p>
+                    
+                    <!-- FAQ Item 3: Volunteering options -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Can I volunteer remotely or do I need to be in Bangladesh?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer both on-site and remote volunteering opportunities. Remote volunteers can help with digital marketing, content creation, research, and online mentoring. On-site volunteers work directly with our communities in Bangladesh.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 4: Tax benefits for donations -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Are donations to Shakti Foundation tax-deductible?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, donations to Shakti Foundation are tax-deductible under Section 80G of the Income Tax Act. We provide donation receipts for all contributions that can be used for tax purposes.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 5: Organizational collaborations -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How can my organization collaborate with Shakti Foundation?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We welcome collaborations with organizations through program funding, employee engagement, skills-based volunteering, and awareness campaigns. Please select "Partnership" as your enquiry type above, and our partnership team will contact you to discuss opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Link to full FAQ page for more questions -->
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="about.html#faq" class="btn-primary" style="text-decoration: none;">View Full FAQ Section</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT ALTERNATIVES ================= -->
+        <!-- Additional contact methods for visitors who prefer other ways to reach us -->
+        <section class="contact-alternatives">
+            <div class="container">
+                <h2>Other Ways to Reach Us</h2>
+                <div class="contact-methods">
+                    <!-- Phone contact information -->
+                    <div class="contact-method">
+                        <h3>📞 Phone</h3>
+                        <p>+91 98765 43210 (General)</p>
+                        <p>+91 98765 43211 (Partnerships)</p>
+                        <p><strong>Hours:</strong> Mon-Fri, 9AM-6PM</p>
+                    </div>
+                    <!-- Email contact information -->
+                    <div class="contact-method">
+                        <h3>📧 Email</h3>
+                        <p>info@shaktifoundation.org (General)</p>
+                        <p>partnerships@shaktifoundation.org</p>
+                        <p>volunteer@shaktifoundation.org</p>
+                    </div>
+                    <!-- Physical address information -->
+                    <div class="contact-method">
+                        <h3>📍 Visit Us</h3>
+                        <p>123 Empowerment Street</p>
+                        <p>Dhaka, Bangladesh</p>
+                        <p><strong>By appointment only</strong></p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER: Bottom of the page -->
+    <!-- ================= FOOTER SECTION ================= -->
+    <!-- Consistent footer that appears on every page -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <!-- Copyright -->
+                <!-- Copyright information -->
                 <p>&copy; 2025 Shakti Foundation. All rights reserved.</p>
-                <!-- Contact details -->
+                <!-- Contact information for quick reference -->
                 <p>Contact: info@shaktifoundation.org | +91 98765 43210 | +91 98765 43210</p>
+                <!-- Quick navigation links to other important pages -->
+                <p style="margin-top: 1rem;">
+                    <a href="about.html" style="color: #FFD700; margin-right: 1rem;">About Us</a>
+                    <a href="programs.html" style="color: #FFD700; margin-right: 1rem;">Our Programs</a>
+                    <a href="contact.html" style="color: #FFD700;">Contact</a>
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript file for form behavior (interactivity) -->
-    <script src="js/donate.js"></script>
+    <!-- ================= JAVASCRIPT ================= -->
+    <!-- Interactive functionality to enhance the enquiry form experience -->
+    <script>
+        // Handles enquiry type selection when buttons are clicked
+        document.querySelectorAll('.enquiry-type-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active state from all type buttons
+                document.querySelectorAll('.enquiry-type-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // Add active state to the clicked button
+                this.classList.add('active');
+                // Set the hidden input value with the selected type
+                const enquiryType = this.getAttribute('data-type');
+                document.getElementById('enquiryType').value = enquiryType;
+                
+                // Update form placeholder text based on the selected type
+                updateFormPlaceholders(enquiryType);
+            });
+        });
+
+        // Function to set enquiry type from quick options (used by the option cards)
+        function setEnquiryType(type) {
+            // Remove active state from all buttons
+            document.querySelectorAll('.enquiry-type-btn').forEach(btn => {
+                btn.classList.remove('active');
+                // Add active state to the button matching the selected type
+                if (btn.getAttribute('data-type') === type) {
+                    btn.classList.add('active');
+                }
+            });
+            // Update the hidden input value
+            document.getElementById('enquiryType').value = type;
+            // Update form placeholders to match the enquiry type
+            updateFormPlaceholders(type);
+            
+            // Smoothly scroll to the enquiry form so users can continue filling it out
+            document.querySelector('.enquiry-main').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Updates form field placeholders based on the selected enquiry type
+        function updateFormPlaceholders(type) {
+            const subjectInput = document.querySelector('input[name="subject"]');
+            const messageTextarea = document.querySelector('textarea[name="message"]');
+            
+            // Different placeholder texts for different enquiry types
+            const placeholders = {
+                'general': {
+                    subject: 'General information request about Shakti Foundation',
+                    message: 'Please tell us what information you are looking for...'
+                },
+                'partnership': {
+                    subject: 'Partnership opportunity with Shakti Foundation',
+                    message: 'Please tell us about your organization and what type of partnership you are interested in...'
+                },
+                'volunteer': {
+                    subject: 'Volunteering enquiry for Shakti Foundation',
+                    message: 'Please tell us about your skills, availability, and areas of interest for volunteering...'
+                },
+                'donation': {
+                    subject: 'Donation enquiry for Shakti Foundation',
+                    message: 'Please tell us about your donation questions or requirements...'
+                }
+            };
+            
+            // Update the placeholders if the type exists in our list
+            if (placeholders[type]) {
+                subjectInput.placeholder = placeholders[type].subject;
+                messageTextarea.placeholder = placeholders[type].message;
+            }
+        }
+
+        // FAQ accordion functionality to show/hide answers
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items first
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open the clicked item if it wasn't already active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Form validation and submission handling
+        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values for validation
+            const name = document.querySelector('input[name="full-name"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const subject = document.querySelector('input[name="subject"]').value;
+            const message = document.querySelector('textarea[name="message"]').value;
+            const enquiryType = document.getElementById('enquiryType').value;
+            
+            // Check that all required fields are filled out
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all required fields before submitting.');
+                return;
+            }
+            
+            // Validate email format using regular expression
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Show success message with confirmation details
+            alert(`Thank you, ${name}! Your ${enquiryType} enquiry has been submitted successfully. We will respond to you within 24 hours.`);
+            
+            // In a real implementation, this would submit the form data to a server
+            console.log('Enquiry details:', { name, email, subject, message, enquiryType });
+            
+            // Reset the form after successful submission
+            this.reset();
+            // Set the first enquiry type as active again
+            document.querySelector('.enquiry-type-btn').classList.add('active');
+            document.getElementById('enquiryType').value = 'general';
+            updateFormPlaceholders('general');
+        });
+
+        // Initialize the page when it loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set the first enquiry type as active by default
+            document.querySelector('.enquiry-type-btn').classList.add('active');
+            updateFormPlaceholders('general');
+        });
+    </script>
+
+    <!-- Additional CSS for contact alternatives section -->
+    <style>
+        .contact-alternatives {
+            padding: 3rem 0;
+            background: #1a1a1a;
+            text-align: center;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-method {
+            background: #2a2a2a;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        
+        .contact-method h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-method p {
+            color: #CCCCCC;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .enquiry-hero {
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+        }
+    </style>
 </body>
 </html>
